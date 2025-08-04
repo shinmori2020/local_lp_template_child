@@ -62,12 +62,12 @@ function local_lp_template_child_scripts() {
 add_action('wp_enqueue_scripts', 'local_lp_template_child_scripts');
 
 /**
- * Complete Independent Modules System
- * 完全独立型モジュールシステムを有効化
+ * Complete Independent Modules System - 一時無効化中
+ * 完全独立型モジュールシステム（Smart Modules テスト中のため無効化）
  * 
- * 各モジュールがCSS、JavaScript、ACF、ショートコードを
- * すべて内包した完全独立型設計
+ * 再有効化する場合は下記のコメントアウトを解除してください
  */
+/*
 if (file_exists(get_stylesheet_directory() . '/modules_complete/module_loader.php')) {
     require_once get_stylesheet_directory() . '/modules_complete/module_loader.php';
     
@@ -94,4 +94,11 @@ if (file_exists(get_stylesheet_directory() . '/modules_complete/module_loader.ph
         }
     });
 }
+*/
+
+/**
+ * Smart Modules System - テスト中
+ * 効率的な遅延読み込み型モジュールシステム
+ */
+require_once get_stylesheet_directory() . '/modules_smart/smart_modules_loader.php';
 ?>

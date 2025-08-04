@@ -1,0 +1,245 @@
+/* Smart Problem Module CSS */
+.smart-problem-module {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.problem-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+.problem-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.problem-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.problem-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* 課題グリッド */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.problem-card {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(231, 76, 60, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(231, 76, 60, 0.15);
+}
+
+.problem-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* アイコン */
+.problem-icon {
+    margin-bottom: 20px;
+}
+
+.problem-icon i {
+    font-size: 3rem;
+    color: #e74c3c;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* カードタイトル */
+.problem-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.3;
+}
+
+/* カード説明 */
+.problem-card-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 共感セクション */
+.problem-empathy {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-empathy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.empathy-content {
+    position: relative;
+    z-index: 2;
+}
+
+.empathy-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.empathy-text i {
+    font-size: 1.1em;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.empathy-subtext {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* AOS対応 */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .smart-problem-module {
+        padding: 60px 0;
+    }
+    
+    .problem-container {
+        padding: 0 15px;
+    }
+    
+    .problem-title {
+        font-size: 2rem;
+    }
+    
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .problem-card {
+        padding: 25px 20px;
+    }
+    
+    .problem-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .problem-empathy {
+        padding: 30px 20px;
+    }
+    
+    .empathy-text {
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .problem-title {
+        font-size: 1.8rem;
+    }
+    
+    .problem-card-title {
+        font-size: 1.2rem;
+    }
+    
+    .problem-card-desc {
+        font-size: 0.9rem;
+    }
+}

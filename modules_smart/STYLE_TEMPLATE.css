@@ -1,0 +1,384 @@
+/* Smart [MODULE_NAME] Module CSS Template */
+
+/* ==========================================================================
+   基本構造
+   ========================================================================== */
+
+.smart-[MODULE_NAME]-module {
+    padding: 80px 0;
+    background-color: #ffffff;
+    color: #333333;
+    position: relative;
+    overflow: hidden;
+}
+
+.[MODULE_NAME]-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   ヘッダーセクション
+   ========================================================================== */
+
+.[MODULE_NAME]-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.[MODULE_NAME]-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: inherit;
+    line-height: 1.2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.[MODULE_NAME]-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* ==========================================================================
+   メインコンテンツ
+   ========================================================================== */
+
+.[MODULE_NAME]-content {
+    margin-bottom: 40px;
+}
+
+.[MODULE_NAME]-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #555;
+}
+
+/* ==========================================================================
+   グリッドレイアウト（汎用）
+   ========================================================================== */
+
+.[MODULE_NAME]-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.[MODULE_NAME]-item {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.[MODULE_NAME]-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.[MODULE_NAME]-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #007cba, #005a87);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.[MODULE_NAME]-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* ==========================================================================
+   アイコン・画像
+   ========================================================================== */
+
+.[MODULE_NAME]-icon {
+    margin-bottom: 20px;
+}
+
+.[MODULE_NAME]-icon i {
+    font-size: 3rem;
+    color: #007cba;
+    animation: pulse 2s infinite;
+}
+
+.[MODULE_NAME]-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   テキスト要素
+   ========================================================================== */
+
+.[MODULE_NAME]-item-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.3;
+}
+
+.[MODULE_NAME]-item-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   アクションボタン
+   ========================================================================== */
+
+.[MODULE_NAME]-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.[MODULE_NAME]-button {
+    display: inline-block;
+    background-color: #007cba;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.[MODULE_NAME]-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 124, 186, 0.3);
+    color: #fff;
+    text-decoration: none;
+}
+
+.[MODULE_NAME]-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.[MODULE_NAME]-button:hover::before {
+    left: 100%;
+}
+
+/* ==========================================================================
+   アニメーション
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* AOS対応 */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   カスタムバリエーション
+   ========================================================================== */
+
+/* ダークテーマ */
+.smart-[MODULE_NAME]-module.theme-dark {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+}
+
+.theme-dark .[MODULE_NAME]-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* コンパクトレイアウト */
+.smart-[MODULE_NAME]-module.layout-compact {
+    padding: 40px 0;
+}
+
+.layout-compact .[MODULE_NAME]-header {
+    margin-bottom: 30px;
+}
+
+.layout-compact .[MODULE_NAME]-title {
+    font-size: 2rem;
+}
+
+/* ==========================================================================
+   レスポンシブ対応
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .smart-[MODULE_NAME]-module {
+        padding: 60px 0;
+    }
+    
+    .[MODULE_NAME]-container {
+        padding: 0 15px;
+    }
+    
+    .[MODULE_NAME]-title {
+        font-size: 2rem;
+    }
+    
+    .[MODULE_NAME]-subtitle {
+        font-size: 1rem;
+    }
+    
+    .[MODULE_NAME]-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .[MODULE_NAME]-item {
+        padding: 25px 20px;
+    }
+    
+    .[MODULE_NAME]-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .[MODULE_NAME]-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .[MODULE_NAME]-title {
+        font-size: 1.8rem;
+    }
+    
+    .[MODULE_NAME]-item-title {
+        font-size: 1.2rem;
+    }
+    
+    .[MODULE_NAME]-item-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================================================
+   印刷対応
+   ========================================================================== */
+
+@media print {
+    .smart-[MODULE_NAME]-module {
+        padding: 20px 0;
+        background: #fff !important;
+        color: #000 !important;
+    }
+    
+    .[MODULE_NAME]-item {
+        border: 1px solid #ddd;
+        box-shadow: none;
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .[MODULE_NAME]-button {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   アクセシビリティ対応
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* フォーカス対応 */
+.[MODULE_NAME]-button:focus {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+}
+
+/* 高コントラスト対応 */
+@media (prefers-contrast: high) {
+    .[MODULE_NAME]-item {
+        border: 2px solid #333;
+    }
+    
+    .[MODULE_NAME]-button {
+        border: 2px solid currentColor;
+    }
+}
+
+/*
+使用方法:
+1. [MODULE_NAME] を実際のモジュール名に置換
+2. 必要に応じてセクションを追加・削除
+3. カラーパレットを調整
+4. レスポンシブブレークポイントを調整
+
+提供される機能:
+- 基本レイアウト構造
+- レスポンシブ対応
+- アニメーション効果
+- ホバー効果
+- アクセシビリティ対応
+- 印刷対応
+- ダークテーマ対応
+- AOS対応
+
+カスタマイズポイント:
+- カラーパレット
+- グリッドレイアウト
+- アニメーション
+- スペーシング
+- タイポグラフィ
+*/
