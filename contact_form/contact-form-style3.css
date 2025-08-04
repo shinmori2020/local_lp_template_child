@@ -1,0 +1,614 @@
+/* お問い合わせフォーム Style 3 - 温かみのある・親しみやすい */
+
+.contact-style3 {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #e8f5e8, #d4edd4);
+    min-height: 100vh;
+}
+
+.contact-style3 .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダーセクション */
+.contact-style3 .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-style3 .header-icon {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contact-style3 .header-icon i {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.contact-style3 .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.contact-style3 .section-description {
+    font-size: 1.1rem;
+    color: #558B2F;
+    line-height: 1.6;
+}
+
+/* ステップインジケーター */
+.contact-style3 .form-steps {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 40px;
+}
+
+.contact-style3 .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-style3 .step::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    width: 40px;
+    height: 2px;
+    background: #C8E6C9;
+    z-index: -1;
+}
+
+.contact-style3 .step:last-child::after {
+    display: none;
+}
+
+.contact-style3 .step.active::after {
+    background: #4CAF50;
+}
+
+.contact-style3 .step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #C8E6C9;
+    color: #558B2F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-style3 .step.active .step-number {
+    background: #4CAF50;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.contact-style3 .step-text {
+    font-size: 0.9rem;
+    color: #558B2F;
+    font-weight: 600;
+}
+
+.contact-style3 .step.active .step-text {
+    color: #2E7D32;
+}
+
+/* フォームコンテナ */
+.contact-style3 .form-wrapper {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 50px;
+    border: 3px solid #C8E6C9;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-style3 .form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.05) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.contact-style3 .form-step {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-style3 .form-step.active {
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ステップヘッダー */
+.contact-style3 .step-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-style3 .step-header h3 {
+    font-size: 1.8rem;
+    color: #2E7D32;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.contact-style3 .step-header h3 i {
+    color: #4CAF50;
+}
+
+.contact-style3 .step-header p {
+    color: #558B2F;
+    font-size: 1rem;
+}
+
+/* フォームグリッド */
+.contact-style3 .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* 入力フィールド */
+.contact-style3 .input-wrapper {
+    position: relative;
+}
+
+.contact-style3 .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #81C784;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.contact-style3 .form-input {
+    width: 100%;
+    padding: 16px 16px 16px 45px;
+    border: 2px solid #E8F5E8;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #2E7D32;
+    background: #FAFAFA;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-style3 .form-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.contact-style3 .form-input:focus + .floating-label,
+.contact-style3 .form-input:not(:placeholder-shown) + .floating-label {
+    top: -8px;
+    left: 12px;
+    font-size: 0.8rem;
+    color: #4CAF50;
+    background: #ffffff;
+    padding: 0 8px;
+}
+
+.contact-style3 .floating-label {
+    position: absolute;
+    top: 16px;
+    left: 45px;
+    font-size: 1rem;
+    color: #81C784;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.contact-style3 .required {
+    color: #F57C00;
+    font-weight: 700;
+}
+
+/* セクションラベル */
+.contact-style3 .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2E7D32;
+    margin-bottom: 20px;
+}
+
+.contact-style3 .section-label i {
+    color: #4CAF50;
+}
+
+/* カテゴリーグリッド */
+.contact-style3 .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-style3 .category-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.contact-style3 .category-card input[type="radio"] {
+    display: none;
+}
+
+.contact-style3 .card-content {
+    background: #F1F8E9;
+    border: 2px solid #C8E6C9;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-style3 .card-content:hover {
+    border-color: #4CAF50;
+    background: #E8F5E8;
+    transform: translateY(-3px);
+}
+
+.contact-style3 .category-card input[type="radio"]:checked + .card-content {
+    background: #4CAF50;
+    border-color: #2E7D32;
+    color: #ffffff;
+}
+
+.contact-style3 .card-content i {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.contact-style3 .category-card input[type="radio"]:checked + .card-content i {
+    color: #ffffff;
+}
+
+.contact-style3 .card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2E7D32;
+}
+
+.contact-style3 .category-card input[type="radio"]:checked + .card-content .card-title {
+    color: #ffffff;
+}
+
+.contact-style3 .card-desc {
+    font-size: 0.85rem;
+    color: #558B2F;
+}
+
+.contact-style3 .category-card input[type="radio"]:checked + .card-content .card-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* テキストエリア */
+.contact-style3 .textarea-wrapper {
+    position: relative;
+}
+
+.contact-style3 .form-textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #E8F5E8;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #2E7D32;
+    background: #FAFAFA;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 120px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.contact-style3 .form-textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background: #ffffff;
+}
+
+.contact-style3 .textarea-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.contact-style3 .char-count {
+    color: #81C784;
+}
+
+.contact-style3 .emoji-hint {
+    color: #558B2F;
+    font-style: italic;
+}
+
+/* 確認画面 */
+.contact-style3 .confirmation-card {
+    background: #F1F8E9;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #C8E6C9;
+}
+
+.contact-style3 .confirm-section {
+    margin-bottom: 25px;
+}
+
+.contact-style3 .confirm-section:last-child {
+    margin-bottom: 0;
+}
+
+.contact-style3 .confirm-section h4 {
+    font-size: 1.2rem;
+    color: #2E7D32;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-style3 .confirm-section h4 i {
+    color: #4CAF50;
+}
+
+.contact-style3 .confirm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.contact-style3 .confirm-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-style3 .confirm-label {
+    font-size: 0.9rem;
+    color: #558B2F;
+    font-weight: 600;
+}
+
+.contact-style3 .confirm-value {
+    color: #2E7D32;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* チェックボックス */
+.contact-style3 .checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.contact-style3 .checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.contact-style3 .custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #C8E6C9;
+    border-radius: 6px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.contact-style3 .custom-checkbox i {
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.2s ease;
+}
+
+.contact-style3 .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.contact-style3 .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.contact-style3 .checkbox-text {
+    color: #2E7D32;
+    line-height: 1.5;
+}
+
+.contact-style3 .checkbox-text a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-style3 .checkbox-text a:hover {
+    text-decoration: underline;
+}
+
+/* ステップアクション */
+.contact-style3 .step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.contact-style3 .prev-btn,
+.contact-style3 .next-btn,
+.contact-style3 .submit-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-style3 .prev-btn {
+    background: #E0E0E0;
+    color: #616161;
+}
+
+.contact-style3 .prev-btn:hover {
+    background: #BDBDBD;
+    transform: translateY(-2px);
+}
+
+.contact-style3 .next-btn {
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    color: #ffffff;
+    margin-left: auto;
+}
+
+.contact-style3 .next-btn:hover {
+    background: linear-gradient(135deg, #388E3C, #4CAF50);
+    transform: translateY(-2px);
+}
+
+.contact-style3 .submit-btn {
+    background: linear-gradient(135deg, #FF8F00, #FFA726);
+    color: #ffffff;
+    margin-left: auto;
+}
+
+.contact-style3 .submit-btn:hover {
+    background: linear-gradient(135deg, #F57C00, #FF8F00);
+    transform: translateY(-2px);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .contact-style3 {
+        padding: 60px 0;
+    }
+    
+    .contact-style3 .container {
+        padding: 0 15px;
+    }
+    
+    .contact-style3 .section-title {
+        font-size: 2rem;
+    }
+    
+    .contact-style3 .form-wrapper {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    
+    .contact-style3 .form-steps {
+        gap: 20px;
+    }
+    
+    .contact-style3 .step::after {
+        width: 20px;
+    }
+    
+    .contact-style3 .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .contact-style3 .step-text {
+        font-size: 0.8rem;
+    }
+    
+    .contact-style3 .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-style3 .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-style3 .confirm-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-style3 .step-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-style3 .next-btn,
+    .contact-style3 .submit-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+} 

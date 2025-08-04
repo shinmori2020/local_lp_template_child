@@ -1,0 +1,73 @@
+# WordPress Theme Gitignore
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+error_log
+debug.log
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.bak
+*.backup
+*.old
+
+# Node.js (if using)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Compiled CSS/JS (if using build tools)
+dist/
+build/
+*.min.css
+*.min.js
+*.map
+
+# WordPress specific
+wp-config.php
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+
+# Local development
+local-settings.php
+local-config.php
+.env
+.env.local
+
+# Cache directories
+cache/
+tmp/
+temp/
+
+# Backups
+backups/
+*.sql
+*.gz
+*.zip
+*.tar
+*.tar.gz

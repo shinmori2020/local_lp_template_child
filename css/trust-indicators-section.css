@@ -1,0 +1,294 @@
+/* 信頼性指標セクション */
+.trust-indicators-section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.trust-indicators-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23007bff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+    pointer-events: none;
+}
+
+.trust-section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.trust-section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+/* trust-gridクラスは削除し、縦並びレイアウトに変更 */
+
+/* お客様の声 */
+.testimonial-area {
+    position: relative;
+}
+
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.testimonial-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.testimonial-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.testimonial-info p {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.testimonial-text {
+    color: #333;
+    line-height: 1.8;
+    font-style: italic;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 4px solid #007bff;
+}
+
+/* 実績指標 */
+.results-area {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.results-area h3 {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+    text-align: left;
+    color: #1a1a1a;
+    font-weight: 600;
+    position: relative;
+    order: 1;
+}
+
+.results-area h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: translateX(0);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    border-radius: 2px;
+}
+
+/* デバッグ用：results-gridが確実に表示されるようにする */
+.results-area .results-grid {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    order: 2;
+}
+
+.results-card {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.results-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.results-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.results-number small {
+    font-size: 1.2rem;
+    margin-left: 0.25rem;
+    font-weight: 600;
+}
+
+.results-label {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1200px) {
+    .trust-section {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .trust-indicators-section {
+        padding: 4rem 0;
+    }
+
+    .trust-section {
+        padding: 2rem;
+        border-radius: 16px;
+    }
+
+    .testimonial-area, .results-area {
+        padding: 2rem;
+        border-radius: 12px;
+    }
+
+         .testimonial-icon {
+         width: 70px;
+         height: 70px;
+         font-size: 1.8rem;
+     }
+
+    .testimonial-text {
+        font-size: 1rem;
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .results-card {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .results-number {
+        font-size: 2.2rem;
+    }
+
+    .results-label {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-indicators-section {
+        padding: 3rem 0;
+    }
+
+    .trust-section {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .testimonial-area, .results-area {
+        padding: 1.5rem;
+    }
+
+         .testimonial-icon {
+         width: 60px;
+         height: 60px;
+         font-size: 1.5rem;
+     }
+
+    .testimonial-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+        padding-left: 0.5rem;
+        border-left-width: 3px;
+    }
+
+    .results-area h3 {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .results-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .results-number {
+        font-size: 2rem;
+    }
+
+    .results-number small {
+        font-size: 1rem;
+    }
+
+    .results-label {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+} 

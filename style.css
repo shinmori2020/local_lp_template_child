@@ -1,0 +1,18 @@
+/*
+Theme Name: Local LP Template Child
+Template: local_lp_template
+Theme URI: 
+Author: Your Name
+Description: Child theme for Local LP Template
+Version: 1.0.0
+Requires at least: 6.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: local-lp-template-child
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+/* 親テーマのスタイルを継承 */
+@import url("../local_lp_template/style.css");

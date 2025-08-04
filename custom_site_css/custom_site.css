@@ -1,0 +1,1522 @@
+        /* 全体のリセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* WordPress Block Editor compatibility styles */
+        /* これらのスタイルは、WordPressブロックエディターの出力を元のカスタムHTMLと同じデザインにするためのものです */
+        
+        /* WordPressブロックの基本スタイル */
+        .wp-block-paragraph,
+        .wp-block-heading,
+        .wp-block-group,
+        .wp-block-columns,
+        .wp-block-column {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* parallax-bg要素のスタイル統一 */
+        p.parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* アイコンの表示を修正 */
+        .wp-block-code pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            white-space: normal;
+            overflow: visible;
+            font-family: inherit;
+        }
+
+        /* benefit-iconクラスのスタイル修正 */
+        .wp-block-code .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+
+        /* problem-iconクラスのスタイル修正 */
+        .wp-block-code .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+
+        /* solution-iconクラスのスタイル修正 */
+        .wp-block-code .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+
+        /* WordPressブロックでのグリッドレイアウト調整 */
+        .wp-block-group.problems-grid,
+        .wp-block-group.solutions-grid,
+        .wp-block-group.testimonials-grid,
+        .wp-block-group.stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* WordPressブロックでのカードスタイル調整 */
+        .wp-block-group.problem-card,
+        .wp-block-group.solution-card,
+        .wp-block-group.testimonial-card,
+        .wp-block-group.stat-card {
+            background: white;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .wp-block-group.problem-card:hover,
+        .wp-block-group.solution-card:hover,
+        .wp-block-group.testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* WordPressブロックでのセクション調整 */
+        .wp-block-group.section {
+            padding: 80px 0;
+        }
+
+        .wp-block-group.section-alt {
+            background: #f8f9fa;
+        }
+
+        /* WordPressブロックでのテキストセンタリング */
+        .wp-block-group.problems,
+        .wp-block-group.solutions,
+        .wp-block-group.achievements,
+        .wp-block-group.testimonials {
+            text-align: center;
+        }
+
+        /* WordPressブロックでの数値スタイル */
+        .wp-block-group .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .wp-block-group .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* WordPressブロックでのCTAボタン */
+        .wp-block-group .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .wp-block-group .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            border-radius: 8px;
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+        }
+
+        /* 課題提起セクション */
+        .problems {
+            text-align: center;
+        }
+
+        .problems h2 {
+            color: #e74c3c;
+            margin-bottom: 2rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ソリューションセクション */
+        .solutions {
+            text-align: center;
+        }
+
+        .solutions h2 {
+            color: #27ae60;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* 実績セクション */
+        .achievements {
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* お客様の声セクション */
+        .testimonials {
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .testimonial-company {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* プロセスセクション */
+        .process {
+            text-align: center;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Q&Aセクション */
+        .faq {
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #ffffff;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            transition: background 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .faq-question:hover {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .faq-question::before {
+            content: '×';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .faq-question.active::after {
+            opacity: 0;
+        }
+
+        .faq-question.active::before {
+            opacity: 1;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 400px;
+        }
+
+        .faq-label {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2rem;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .faq-text {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* フッター */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* パララックス効果 */
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            will-change: transform;
+        }
+
+        /* 固定CTAボタン */
+        .floating-cta {
+            position: fixed;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            transition: all 0.3s ease;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .floating-cta.show {
+            bottom: 20px;
+        }
+
+        .floating-cta:hover {
+            background: #ff5252;
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        /* 課題セクション - カード式グリッドスタイル */
+        .problems-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problem-card-modern {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .problem-icon-modern {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .problem-content-modern h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .problem-content-modern p {
+            color: #555;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* ソリューションセクション - アイコンボックススタイル */
+        .solutions-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-icon-box {
+            text-align: center;
+            background: #fff;
+            padding: 4rem 2rem 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .solution-icon-large {
+            font-size: 2.5rem;
+            color: white;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            margin-bottom: 0;
+        }
+
+        .solution-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .solution-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .solution-benefit {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
+            font-size: 0.9rem;
+            color: #27ae60;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        /* 実績セクション - サークル統計スタイル */
+        .achievements-circle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .achievement-circle {
+            text-align: center;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .circular-progress {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circular-chart {
+            width: 100%;
+            height: 100%;
+            transform: rotate(90deg);
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #e9ecef;
+            stroke-width: 3;
+        }
+
+        .circle {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+            transform: rotate(270deg);
+            transform-origin: center;
+        }
+
+        .percentage-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2c3e50;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .achievement-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-subtitle {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-highlight {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        /* お客様の声セクション - モダンカードスタイル */
+        .testimonials-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-modern-card {
+            background: #fff;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .testimonial-modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            border-radius: 50%;
+        }
+
+        .testimonial-info h4 {
+            color: #2c3e50;
+            margin: 0 0 0.3rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .testimonial-info p {
+            color: #667eea;
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.5rem;
+            position: relative;
+            text-align: left;
+        }
+
+        .testimonial-result {
+            background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            color: #667eea;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        /* 制作プロセス - 縦並びスタイル */
+        .process {
+            background: #f8f9fa;
+        }
+
+        .process-timeline {
+            margin: 3rem auto 0;
+            padding: 2rem 0;
+        }
+
+        .process-step-timeline {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-content {
+            width: 100%;
+        }
+
+        .step-number-timeline {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 2.5rem;
+            position: relative;
+            overflow: visible;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .step-title-timeline {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .step-description-timeline {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .step-info-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .step-duration {
+            display: inline-block;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        /* お問い合わせフォーム */
+        .contact-form-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-form-card {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .form-header-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .radio-option:hover {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom {
+            border-color: #667eea;
+            background: #667eea;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-custom::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .radio-option input[type="radio"]:checked ~ * {
+            color: #667eea;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            height: fit-content;
+        }
+
+        .contact-info-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-info-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .contact-info-content {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info-item i {
+            font-size: 1.5rem;
+            min-width: 24px;
+        }
+
+        .contact-info-item h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-info-item p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .contact-benefits {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-benefits h4 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-benefits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-benefits i {
+            color: #4ade80;
+            font-size: 1rem;
+        }
+
+        /* プログレスバー */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: #ff6b6b;
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* 特典表示 */
+        .benefits-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 150px;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .benefit-item:hover::before {
+            left: 100%;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            color: #ffd700;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ローディングスピナー */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                color: #ffffff;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .problems-grid-modern,
+            .solutions-icon-grid,
+            .achievements-circle-grid,
+            .testimonials-modern-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-number-timeline {
+                position: relative;
+                margin-bottom: 1rem;
+                transform: none;
+                left: 0;
+            }
+
+            .step-card {
+                padding: 1.5rem;
+            }
+
+            .process-flow {
+                display: block;
+            }
+
+            .process-step-flow:not(:last-child)::after {
+                display: none;
+            }
+
+            .floating-cta {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .benefits-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .benefit-item {
+                padding: 1rem;
+            }
+
+            .benefit-icon {
+                font-size: 1.5rem;
+            }
+
+            .benefit-text {
+                font-size: 0.8rem;
+            }
+
+            .circular-progress {
+                width: 80px;
+                height: 80px;
+            }
+
+            .percentage-text {
+                font-size: 1rem;
+            }
+
+            .achievement-title {
+                font-size: 1rem;
+            }
+
+            .achievement-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .achievement-highlight {
+                font-size: 0.8rem;
+            }
+
+            /* お問い合わせフォームのレスポンシブ対応 */
+            .contact-form-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem auto 0;
+            }
+
+            .contact-form-card {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .radio-group {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .radio-option {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+
+            .contact-info-card {
+                padding: 2rem;
+                order: -1;
+            }
+
+            .form-header {
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+            }
+
+            .form-header-icon {
+                font-size: 2.5rem;
+            }
+
+            .form-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info-item {
+                padding: 0.75rem;
+            }
+
+            .contact-benefits {
+                padding: 1rem;
+            }
+        }
