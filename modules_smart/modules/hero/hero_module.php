@@ -61,6 +61,13 @@ class SmartHeroModule extends SmartModuleBase {
         <section id="<?php echo esc_attr($this->unique_id); ?>" class="smart-hero-module" 
                  style="background-color: <?php echo esc_attr($data['bg_color']); ?>; color: <?php echo esc_attr($data['text_color']); ?>;">
             
+            <?php if (current_user_can('administrator')): ?>
+                <!-- キャッシュ確認用（一時的） -->
+                <div style="font-size: 10px; color: #ccc; position: absolute; top: 0; right: 0; background: rgba(0,0,0,0.5); padding: 2px 5px;">
+                    <?php echo date('H:i:s'); ?> | ID:<?php echo get_the_ID(); ?> | <?php echo $data['title']; ?>
+                </div>
+            <?php endif; ?>
+            
             <!-- 背景装飾 -->
             <div class="hero-bg-decoration">
                 <div class="bg-circle bg-circle-1"></div>
@@ -125,7 +132,7 @@ class SmartHeroModule extends SmartModuleBase {
     protected function build_acf_fields() {
         $fields = parent::build_acf_fields();
         
-        // 色選択フィールドを追加
+        // 色選択フィールドとbooleanフィールドのタイプ調整
         foreach ($fields as &$field) {
             if ($field['name'] === 'hero_bg_color') {
                 $field['type'] = 'color_picker';
@@ -136,6 +143,7 @@ class SmartHeroModule extends SmartModuleBase {
             } elseif ($field['name'] === 'hero_show_stats') {
                 $field['type'] = 'true_false';
                 $field['default_value'] = 1;
+                $field['ui'] = 1;
             }
         }
         

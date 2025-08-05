@@ -82,6 +82,7 @@ abstract class SmartModuleBase {
         $post_id = get_the_ID();
         
         if (!$post_id) {
+            error_log("SmartModuleBase: post_id が取得できません - {$this->module_name}");
             return $values;
         }
         
@@ -90,7 +91,7 @@ abstract class SmartModuleBase {
             $acf_key = $this->module_name . '_' . $key;
             $acf_value = get_field($acf_key, $post_id);
             
-            if ($acf_value !== null && $acf_value !== '') {
+            if ($acf_value !== null && $acf_value !== '' && $acf_value !== false) {
                 $values[$key] = $acf_value;
             }
         }
@@ -205,7 +206,8 @@ abstract class SmartModuleBase {
         
         // CSSファイル存在確認
         if (file_exists($css_file_path)) {
-            $css_url = get_stylesheet_directory_uri() . "/modules_smart/assets/css/{$this->module_name}.css";
+            $version = filemtime($css_file_path); // キャッシュバスター
+            $css_url = get_stylesheet_directory_uri() . "/modules_smart/assets/css/{$this->module_name}.css?v=" . $version;
             SmartModuleLoader::enqueue_asset($css_handle, $css_url, 'css');
         } else {
             error_log("SmartModuleBase: CSSファイルが見つかりません - {$css_file_path}");

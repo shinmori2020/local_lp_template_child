@@ -10,10 +10,10 @@ get_header(); ?>
 <div class="smart-test-page">
     
     <!-- Smart Hero Module テスト -->
-    <?php echo do_shortcode('[hero_smart_module title="Smart Modules テスト" subtitle="新しいモジュールシステムの動作確認中" cta_text="テスト実行中"]'); ?>
+    <?php echo do_shortcode('[hero_smart_module]'); ?>
     
     <!-- Smart Problem Module テスト -->
-    <?php echo do_shortcode('[problem_smart_module title="テスト用課題セクション" subtitle="システムの動作を確認しています"]'); ?>
+    <?php echo do_shortcode('[problem_smart_module]'); ?>
     
     <!-- テスト情報表示 -->
     <section style="padding: 40px 20px; background: #f8f9fa; text-align: center;">

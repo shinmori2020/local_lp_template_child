@@ -45,15 +45,18 @@ class SmartModuleLoader {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_global_assets']);
         
         // ACFフィールド登録（複数のタイミングで試行）
-        add_action('acf/init', [$this, 'register_all_acf_fields']);
-        add_action('init', [$this, 'register_all_acf_fields']);
-        add_action('wp_loaded', [$this, 'register_all_acf_fields']);
+        add_action('acf/init', [$this, 'register_all_acf_fields'], 10);
+        add_action('init', [$this, 'register_all_acf_fields'], 20);
+        add_action('wp_loaded', [$this, 'register_all_acf_fields'], 30);
+        add_action('admin_init', [$this, 'register_all_acf_fields'], 40);
         
         // AOS初期化
         add_action('wp_footer', [$this, 'init_aos']);
         
-        // デバッグ情報（常に表示）
-        add_action('wp_footer', [$this, 'debug_info']);
+        // デバッグ情報（開発時のみ表示）
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            add_action('wp_footer', [$this, 'debug_info']);
+        }
         
         // 管理画面でのACF情報表示
         add_action('admin_notices', [$this, 'admin_debug_info']);
@@ -207,9 +210,10 @@ class SmartModuleLoader {
         // 共通スタイル（ファイル存在確認付き）
         $common_css_path = get_stylesheet_directory() . '/modules_smart/assets/css/common.css';
         if (file_exists($common_css_path)) {
+            $version = filemtime($common_css_path); // キャッシュバスター
             self::enqueue_asset(
                 'smart-modules-common',
-                get_stylesheet_directory_uri() . '/modules_smart/assets/css/common.css',
+                get_stylesheet_directory_uri() . '/modules_smart/assets/css/common.css?v=' . $version,
                 'css'
             );
         } else {
@@ -224,6 +228,11 @@ class SmartModuleLoader {
         // 重複登録を防ぐ
         if (self::$acf_fields_registered) {
             return;
+        }
+        
+        // 既存のACFフィールドグループをクリア（開発中のみ）
+        if (current_user_can('administrator') && defined('WP_DEBUG') && WP_DEBUG) {
+            $this->clear_existing_field_groups();
         }
         
         error_log('SmartModuleLoader: ACFフィールド登録開始');
@@ -347,9 +356,23 @@ class SmartModuleLoader {
                 'location' => [
                     [
                         [
-                            'param' => 'post_type',
+                            'param' => 'page_template',
                             'operator' => '==',
-                            'value' => 'page',
+                            'value' => 'page-smart-test.php',
+                        ],
+                    ],
+                    [
+                        [
+                            'param' => 'page_template',
+                            'operator' => '==',
+                            'value' => 'custom_template.php',
+                        ],
+                    ],
+                    [
+                        [
+                            'param' => 'page_template',
+                            'operator' => '==',
+                            'value' => 'custom_template_site.php',
                         ],
                     ],
                 ],
@@ -451,12 +474,44 @@ class SmartModuleLoader {
             echo '<ul>';
             foreach ($available_modules as $module_name) {
                 $group_key = 'group_smart_' . $module_name;
-                echo "<li>{$group_key} - Smart " . ucfirst($module_name) . " Module</li>";
+                $group_exists = function_exists('acf_get_field_group') ? acf_get_field_group($group_key) : null;
+                $status = $group_exists ? '✅' : '❌';
+                echo "<li>{$status} {$group_key} - Smart " . ucfirst($module_name) . " Module</li>";
+                
+                // フィールド詳細を表示
+                if ($group_exists && function_exists('acf_get_fields')) {
+                    $fields = acf_get_fields($group_key);
+                    if ($fields) {
+                        echo '<ul style="margin-left: 20px;">';
+                        foreach ($fields as $field) {
+                            echo "<li>Field: {$field['name']} ({$field['type']})</li>";
+                        }
+                        echo '</ul>';
+                    }
+                }
             }
             echo '</ul>';
         }
         
         echo '</div>';
+    }
+    
+    /**
+     * 既存のACFフィールドグループをクリア（開発用）
+     */
+    private function clear_existing_field_groups() {
+        if (!function_exists('acf_remove_local_field_group')) {
+            return;
+        }
+        
+        $available_modules = $this->get_available_modules();
+        foreach ($available_modules as $module_name) {
+            $group_key = 'group_smart_' . $module_name;
+            if (acf_get_field_group($group_key)) {
+                acf_remove_local_field_group($group_key);
+                error_log("SmartModuleLoader: 既存フィールドグループを削除 - {$group_key}");
+            }
+        }
     }
     
     /**
