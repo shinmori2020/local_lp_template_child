@@ -206,9 +206,13 @@ abstract class SmartModuleBase {
         
         // CSS読み込み
         $css_handle = 'smart-' . $this->module_name . '-css';
+        error_log("SmartModuleBase: CSS読み込み試行 - {$asset_paths['css_file']}");
+        error_log("SmartModuleBase: CSSファイル存在確認 - " . (file_exists($asset_paths['css_file']) ? 'YES' : 'NO'));
+        
         if (file_exists($asset_paths['css_file'])) {
             $version = filemtime($asset_paths['css_file']); // キャッシュバスター
             $css_url = $asset_paths['css_url'] . '?v=' . $version;
+            error_log("SmartModuleBase: CSS URL - {$css_url}");
             SmartModuleLoader::enqueue_asset($css_handle, $css_url, 'css');
         } else {
             error_log("SmartModuleBase: CSSファイルが見つかりません - {$asset_paths['css_file']}");
@@ -230,9 +234,13 @@ abstract class SmartModuleBase {
         $theme_dir = get_stylesheet_directory();
         $theme_uri = get_stylesheet_directory_uri();
         
-        // 新構造を優先して検索 (modules/module_name/module_name_module_01/assets/)
-        $new_structure_pattern = $theme_dir . '/modules_smart/modules/' . $this->module_name . '/' . $this->module_name . '_module_*/assets';
+        // 新構造を優先して検索 (modules/*module_name/module_name_module_01/assets/)
+        // 順序番号付きディレクトリにも対応
+        $new_structure_pattern = $theme_dir . '/modules_smart/modules/*' . $this->module_name . '/' . $this->module_name . '_module_*/assets';
         $new_structure_dirs = glob($new_structure_pattern, GLOB_ONLYDIR);
+        
+        error_log("SmartModuleBase: アセット検索パターン - {$new_structure_pattern}");
+        error_log("SmartModuleBase: 検出されたアセットディレクトリ - " . print_r($new_structure_dirs, true));
         
         if (!empty($new_structure_dirs)) {
             // 01バージョンを優先、なければ最初に見つかったもの
@@ -245,12 +253,17 @@ abstract class SmartModuleBase {
             }
             
             $relative_path = str_replace($theme_dir, '', $selected_assets_dir);
-            return [
+            // Windowsのパス区切り文字を統一
+            $relative_path = str_replace('\\', '/', $relative_path);
+            $asset_paths = [
                 'css_file' => $selected_assets_dir . '/css/' . $this->module_name . '.css',
                 'css_url' => $theme_uri . $relative_path . '/css/' . $this->module_name . '.css',
                 'js_file' => $selected_assets_dir . '/js/' . $this->module_name . '.js',
                 'js_url' => $theme_uri . $relative_path . '/js/' . $this->module_name . '.js'
             ];
+            
+            error_log("SmartModuleBase: 最終アセットパス - " . print_r($asset_paths, true));
+            return $asset_paths;
         }
         
         // 旧構造にフォールバック (modules_smart/assets/)

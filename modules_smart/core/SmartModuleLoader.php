@@ -304,7 +304,9 @@ class SmartModuleLoader {
         if (is_dir($modules_dir)) {
             $module_type_dirs = glob($modules_dir . '/*', GLOB_ONLYDIR);
             foreach ($module_type_dirs as $type_dir) {
-                $module_type = basename($type_dir);
+                $dir_name = basename($type_dir);
+                // 順序番号付きディレクトリ名から実際のモジュール名を抽出 (例: 01_hero -> hero)
+                $module_type = preg_replace('/^[0-9]+_/', '', $dir_name);
                 
                 // ナンバリングフォルダを検索 (例: hero_module_01)
                 $version_dirs = glob($type_dir . '/' . $module_type . '_module_*', GLOB_ONLYDIR);
@@ -342,7 +344,21 @@ class SmartModuleLoader {
      */
     private function get_module_path($module_name, $version = '01') {
         $modules_dir = get_stylesheet_directory() . '/modules_smart/modules';
-        $type_dir = $modules_dir . '/' . $module_name;
+        
+        // 順序番号付きディレクトリを検索 (例: 01_hero, hero)
+        $type_dir = null;
+        $possible_dirs = glob($modules_dir . '/*' . $module_name, GLOB_ONLYDIR);
+        foreach ($possible_dirs as $dir) {
+            $dir_name = basename($dir);
+            if ($dir_name === $module_name || preg_match('/^[0-9]+_' . preg_quote($module_name, '/') . '$/', $dir_name)) {
+                $type_dir = $dir;
+                break;
+            }
+        }
+        
+        if (!$type_dir) {
+            return null;
+        }
         
         // 指定されたバージョンを試行
         $version_dir = $type_dir . '/' . $module_name . '_module_' . $version;
