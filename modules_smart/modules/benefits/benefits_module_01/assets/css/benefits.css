@@ -1,0 +1,303 @@
+/* Smart Benefits Module CSS */
+.smart-benefits-module {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* コンテナ */
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* セクションヘッダー */
+.benefits-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.benefits-header .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+
+.benefits-header .section-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* メリットグリッド */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+/* メリットカード */
+.benefit-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color, #4A90E2) 0%, var(--accent-secondary, #357ABD) 100%);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* 番号 */
+.benefit-number {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 4rem;
+    font-weight: 900;
+    opacity: 0.1;
+    line-height: 1;
+    font-family: 'Arial Black', sans-serif;
+}
+
+/* アイコン */
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.1);
+    background: rgba(74, 144, 226, 0.2);
+}
+
+/* タイトル */
+.benefit-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 15px 0;
+    color: inherit;
+}
+
+/* ハイライト */
+.benefit-highlight {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 25px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* 説明文 */
+.benefit-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+    color: inherit;
+}
+
+/* 装飾要素 */
+.smart-benefits-module::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* アニメーション強化 */
+.benefit-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.benefit-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .smart-benefits-module {
+        padding: 60px 0;
+    }
+    
+    .benefits-container {
+        padding: 0 15px;
+    }
+    
+    .benefits-header {
+        margin-bottom: 40px;
+    }
+    
+    .benefits-header .section-title {
+        font-size: 2rem;
+    }
+    
+    .benefits-header .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .benefit-card {
+        padding: 30px 25px;
+    }
+    
+    .benefit-icon {
+        font-size: 2.5rem;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .benefit-title {
+        font-size: 1.3rem;
+    }
+    
+    .benefit-number {
+        font-size: 3rem;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smart-benefits-module {
+        padding: 40px 0;
+    }
+    
+    .benefits-header .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .benefit-card {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .benefit-icon {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .benefit-title {
+        font-size: 1.2rem;
+    }
+    
+    .benefit-highlight {
+        font-size: 1rem;
+        padding: 6px 15px;
+    }
+    
+    .benefit-description {
+        font-size: 0.95rem;
+    }
+    
+    .benefit-number {
+        font-size: 2.5rem;
+        right: 15px;
+    }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    .benefit-card {
+        background: #2a2a2a;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+    
+    .benefit-highlight {
+        background: rgba(74, 144, 226, 0.2);
+    }
+    
+    .benefit-icon {
+        background: rgba(74, 144, 226, 0.15);
+    }
+    
+    .benefit-card:hover .benefit-icon {
+        background: rgba(74, 144, 226, 0.25);
+    }
+}
+
+/* 印刷対応 */
+@media print {
+    .smart-benefits-module {
+        padding: 40px 0;
+    }
+    
+    .benefit-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .benefit-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}

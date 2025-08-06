@@ -9,11 +9,22 @@ get_header(); ?>
 
 <div class="smart-test-page">
     
-    <!-- Smart Hero Module テスト -->
+    <!-- Smart Hero Module テスト - バージョン01 -->
     <?php echo do_shortcode('[hero_smart_module]'); ?>
+    
+    <!-- Smart Hero Module テスト - バージョン02 -->
+    <div style="border: 3px solid #ff6b6b; padding: 20px; margin: 40px 0; background: #fff3f3;">
+        <h2 style="color: #ff6b6b; text-align: center;">🧪 バージョン指定テスト - Version 02</h2>
+        <?php echo do_shortcode('[hero_smart_module version="02"]'); ?>
+    </div>
     
     <!-- Smart Problem Module テスト -->
     <?php echo do_shortcode('[problem_smart_module]'); ?>
+    
+    <!-- Smart Benefits Module テスト -->
+    <?php echo do_shortcode('[benefits_smart_module]'); ?>
+
+
     
     <!-- テスト情報表示 -->
     <section style="padding: 40px 20px; background: #f8f9fa; text-align: center;">

@@ -201,25 +201,65 @@ abstract class SmartModuleBase {
      * アセットを読み込み
      */
     protected function enqueue_assets() {
-        $css_handle = 'smart-' . $this->module_name . '-css';
-        $css_file_path = get_stylesheet_directory() . "/modules_smart/assets/css/{$this->module_name}.css";
+        // 新構造と旧構造の両方に対応
+        $asset_paths = $this->get_asset_paths();
         
-        // CSSファイル存在確認
-        if (file_exists($css_file_path)) {
-            $version = filemtime($css_file_path); // キャッシュバスター
-            $css_url = get_stylesheet_directory_uri() . "/modules_smart/assets/css/{$this->module_name}.css?v=" . $version;
+        // CSS読み込み
+        $css_handle = 'smart-' . $this->module_name . '-css';
+        if (file_exists($asset_paths['css_file'])) {
+            $version = filemtime($asset_paths['css_file']); // キャッシュバスター
+            $css_url = $asset_paths['css_url'] . '?v=' . $version;
             SmartModuleLoader::enqueue_asset($css_handle, $css_url, 'css');
         } else {
-            error_log("SmartModuleBase: CSSファイルが見つかりません - {$css_file_path}");
+            error_log("SmartModuleBase: CSSファイルが見つかりません - {$asset_paths['css_file']}");
         }
         
-        // JSファイルがあれば読み込み
-        $js_path = get_stylesheet_directory() . "/modules_smart/assets/js/{$this->module_name}.js";
-        if (file_exists($js_path)) {
+        // JS読み込み
+        if (file_exists($asset_paths['js_file'])) {
             $js_handle = 'smart-' . $this->module_name . '-js';
-            $js_url = get_stylesheet_directory_uri() . "/modules_smart/assets/js/{$this->module_name}.js";
+            $version = filemtime($asset_paths['js_file']); // キャッシュバスター
+            $js_url = $asset_paths['js_url'] . '?v=' . $version;
             SmartModuleLoader::enqueue_asset($js_handle, $js_url, 'js');
         }
+    }
+    
+    /**
+     * アセットファイルのパスを取得（新旧構造対応）
+     */
+    private function get_asset_paths() {
+        $theme_dir = get_stylesheet_directory();
+        $theme_uri = get_stylesheet_directory_uri();
+        
+        // 新構造を優先して検索 (modules/module_name/module_name_module_01/assets/)
+        $new_structure_pattern = $theme_dir . '/modules_smart/modules/' . $this->module_name . '/' . $this->module_name . '_module_*/assets';
+        $new_structure_dirs = glob($new_structure_pattern, GLOB_ONLYDIR);
+        
+        if (!empty($new_structure_dirs)) {
+            // 01バージョンを優先、なければ最初に見つかったもの
+            $selected_assets_dir = null;
+            foreach ($new_structure_dirs as $assets_dir) {
+                $selected_assets_dir = $assets_dir;
+                if (strpos($assets_dir, '_module_01/assets') !== false) {
+                    break;
+                }
+            }
+            
+            $relative_path = str_replace($theme_dir, '', $selected_assets_dir);
+            return [
+                'css_file' => $selected_assets_dir . '/css/' . $this->module_name . '.css',
+                'css_url' => $theme_uri . $relative_path . '/css/' . $this->module_name . '.css',
+                'js_file' => $selected_assets_dir . '/js/' . $this->module_name . '.js',
+                'js_url' => $theme_uri . $relative_path . '/js/' . $this->module_name . '.js'
+            ];
+        }
+        
+        // 旧構造にフォールバック (modules_smart/assets/)
+        return [
+            'css_file' => $theme_dir . '/modules_smart/assets/css/' . $this->module_name . '.css',
+            'css_url' => $theme_uri . '/modules_smart/assets/css/' . $this->module_name . '.css',
+            'js_file' => $theme_dir . '/modules_smart/assets/js/' . $this->module_name . '.js',
+            'js_url' => $theme_uri . '/modules_smart/assets/js/' . $this->module_name . '.js'
+        ];
     }
     
     /**

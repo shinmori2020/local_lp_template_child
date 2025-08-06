@@ -77,9 +77,10 @@ class SmartModuleLoader {
         $content = $post->post_content;
         $detected_modules = $this->detect_modules_in_content($content);
         
-        // 強制的にheroとproblemを準備（テスト用）
+        // 強制的に既存モジュールを準備（テスト用）
         $this->prepare_module('hero');
         $this->prepare_module('problem');
+        $this->prepare_module('benefits');
         
         if (!empty($detected_modules)) {
             error_log('SmartModuleLoader: 検出されたモジュール - ' . implode(', ', $detected_modules));
@@ -122,6 +123,11 @@ class SmartModuleLoader {
         // ショートコードを登録（軽量操作）
         $shortcode_name = $module_name . '_smart_module';
         add_shortcode($shortcode_name, function($atts) use ($module_name) {
+            // 属性のデフォルト値を設定
+            $atts = shortcode_atts([
+                'version' => '01', // デフォルトは01
+            ], $atts);
+            
             $loader = SmartModuleLoader::get_instance();
             return $loader->render_module($module_name, $atts);
         });
@@ -134,17 +140,37 @@ class SmartModuleLoader {
      * モジュールをレンダリング（実際の読み込み時）
      */
     public function render_module($module_name, $atts = []) {
+        // version属性を取得（デフォルト01）
+        $version = isset($atts['version']) ? $atts['version'] : '01';
+        
+        // バージョン指定でのモジュール情報取得
+        $module_info = $this->get_module_path($module_name, $version);
+        
+        if (!$module_info) {
+            error_log("SmartModuleLoader: 指定されたバージョンのモジュールが見つかりません - {$module_name} version:{$version}");
+            return '<!-- Smart Module Error: ' . $module_name . ' version:' . $version . ' not found -->';
+        }
+        
         // 初回読み込み時のみ実際にモジュールを読み込み
-        if (!isset(self::$loaded_modules[$module_name])) {
-            $this->load_module($module_name);
+        $module_key = $module_name . '_' . $version;
+        if (!isset(self::$loaded_modules[$module_key])) {
+            $this->load_module($module_name, $version);
         }
         
         // モジュールクラスを取得してレンダリング
-        $module_class = 'Smart' . ucfirst($module_name) . 'Module';
+        // バージョンに応じてクラス名を調整
+        if ($version === '01') {
+            $module_class = 'Smart' . ucfirst($module_name) . 'Module';
+        } else {
+            $module_class = 'Smart' . ucfirst($module_name) . 'ModuleV' . $version;
+        }
         
         if (class_exists($module_class)) {
             $module = new $module_class();
+            error_log("SmartModuleLoader: レンダリング実行 - {$module_name} version:{$version} class:{$module_class}");
             return $module->render($atts);
+        } else {
+            error_log("SmartModuleLoader: クラスが見つかりません - {$module_class}");
         }
         
         return '<!-- Smart Module Error: ' . $module_name . ' not found -->';
@@ -153,15 +179,19 @@ class SmartModuleLoader {
     /**
      * モジュールファイルを実際に読み込み
      */
-    private function load_module($module_name) {
-        $module_path = get_stylesheet_directory() . "/modules_smart/modules/{$module_name}/{$module_name}_module.php";
+    private function load_module($module_name, $version = '01') {
+        $module_info = $this->get_module_path($module_name, $version);
         
-        if (file_exists($module_path)) {
-            require_once $module_path;
-            self::$loaded_modules[$module_name] = true;
-            error_log("SmartModuleLoader: モジュール読み込み完了 - {$module_name}");
+        if ($module_info && file_exists($module_info['module_file'])) {
+            require_once $module_info['module_file'];
+            
+            // バージョン別にキャッシュ（同じクラス名でも異なるファイルの場合があるため）
+            $module_key = $module_name . '_' . $version;
+            self::$loaded_modules[$module_key] = $module_info;
+            
+            error_log("SmartModuleLoader: モジュール読み込み完了 - {$module_name} (version: {$module_info['version']})");
         } else {
-            error_log("SmartModuleLoader: モジュールファイルが見つかりません - {$module_path}");
+            error_log("SmartModuleLoader: モジュールファイルが見つかりません - {$module_name} version:{$version}");
         }
     }
     
@@ -272,13 +302,34 @@ class SmartModuleLoader {
         $modules = [];
         
         if (is_dir($modules_dir)) {
-            $module_dirs = glob($modules_dir . '/*', GLOB_ONLYDIR);
-            foreach ($module_dirs as $dir) {
-                $module_name = basename($dir);
-                $module_file = $dir . '/' . $module_name . '_module.php';
+            $module_type_dirs = glob($modules_dir . '/*', GLOB_ONLYDIR);
+            foreach ($module_type_dirs as $type_dir) {
+                $module_type = basename($type_dir);
                 
-                if (file_exists($module_file)) {
-                    $modules[] = $module_name;
+                // ナンバリングフォルダを検索 (例: hero_module_01)
+                $version_dirs = glob($type_dir . '/' . $module_type . '_module_*', GLOB_ONLYDIR);
+                
+                if (!empty($version_dirs)) {
+                    // デフォルトは01を使用、存在しない場合は最初に見つかったものを使用
+                    $default_version_dir = null;
+                    $fallback_version_dir = null;
+                    
+                    foreach ($version_dirs as $version_dir) {
+                        $module_file = $version_dir . '/' . $module_type . '_module.php';
+                        if (file_exists($module_file)) {
+                            if (!$fallback_version_dir) {
+                                $fallback_version_dir = $version_dir;
+                            }
+                            if (strpos(basename($version_dir), '_module_01') !== false) {
+                                $default_version_dir = $version_dir;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    if ($default_version_dir || $fallback_version_dir) {
+                        $modules[] = $module_type;
+                    }
                 }
             }
         }
@@ -287,10 +338,55 @@ class SmartModuleLoader {
     }
     
     /**
+     * モジュールのファイルパスを取得（ナンバリング対応）
+     */
+    private function get_module_path($module_name, $version = '01') {
+        $modules_dir = get_stylesheet_directory() . '/modules_smart/modules';
+        $type_dir = $modules_dir . '/' . $module_name;
+        
+        // 指定されたバージョンを試行
+        $version_dir = $type_dir . '/' . $module_name . '_module_' . $version;
+        $module_file = $version_dir . '/' . $module_name . '_module.php';
+        
+        if (file_exists($module_file)) {
+            return [
+                'module_file' => $module_file,
+                'module_dir' => $version_dir,
+                'assets_dir' => $version_dir . '/assets',
+                'version' => $version
+            ];
+        }
+        
+        // 指定バージョンが存在しない場合、利用可能な最初のバージョンを使用
+        $version_dirs = glob($type_dir . '/' . $module_name . '_module_*', GLOB_ONLYDIR);
+        foreach ($version_dirs as $version_dir) {
+            $module_file = $version_dir . '/' . $module_name . '_module.php';
+            if (file_exists($module_file)) {
+                $version = str_replace($module_name . '_module_', '', basename($version_dir));
+                return [
+                    'module_file' => $module_file,
+                    'module_dir' => $version_dir,
+                    'assets_dir' => $version_dir . '/assets',
+                    'version' => $version
+                ];
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
      * 特定モジュールのACFフィールドを登録
      */
     private function register_module_acf_fields($module_name) {
-        $module_path = get_stylesheet_directory() . "/modules_smart/modules/{$module_name}/{$module_name}_module.php";
+        $module_info = $this->get_module_path($module_name);
+        
+        if (!$module_info) {
+            error_log("SmartModuleLoader: モジュールが見つかりません - {$module_name}");
+            return;
+        }
+        
+        $module_path = $module_info['module_file'];
         
         if (!file_exists($module_path)) {
             error_log("SmartModuleLoader: モジュールファイルが見つかりません - {$module_path}");

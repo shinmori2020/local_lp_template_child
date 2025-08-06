@@ -49,6 +49,15 @@ class SmartProblemModule extends SmartModuleBase {
             'problem4_icon' => 'fas fa-exclamation-triangle',
             'problem4_title' => 'ミスが頻発する',
             'problem4_desc' => '人的エラーによる問題が後を絶たない',
+            'problem5_icon' => 'fas fa-cog',
+            'problem5_title' => 'システムが複雑',
+            'problem5_desc' => '複数のツールを使い分ける必要があり、管理が煩雑',
+            'problem6_icon' => 'fas fa-money-bill',
+            'problem6_title' => 'コストが増加',
+            'problem6_desc' => '非効率な運用により、余計な費用がかかっている',
+            'empathy_text' => 'これらの課題、きっとあなたも感じていることでしょう。',
+            'empathy_subtext' => 'でも大丈夫です。解決策があります。',
+            'show_empathy' => true,
             'bg_color' => '#f8f9fa',
             'text_color' => '#333333',
             'accent_color' => '#e74c3c'
@@ -81,7 +90,7 @@ class SmartProblemModule extends SmartModuleBase {
                 
                 <!-- 課題カード -->
                 <div class="problem-grid">
-                    <?php for ($i = 1; $i <= 4; $i++): 
+                    <?php for ($i = 1; $i <= 6; $i++): 
                         $title_key = "problem{$i}_title";
                         $icon_key = "problem{$i}_icon";
                         $desc_key = "problem{$i}_desc";
@@ -103,17 +112,24 @@ class SmartProblemModule extends SmartModuleBase {
                 </div>
                 
                 <!-- 共感セクション -->
-                <div class="problem-empathy">
-                    <div class="empathy-content">
-                        <p class="empathy-text">
-                            <i class="fas fa-heart" style="color: <?php echo esc_attr($data['accent_color']); ?>;"></i>
-                            これらの課題、きっとあなたも感じていることでしょう。
-                        </p>
-                        <p class="empathy-subtext">
-                            でも大丈夫です。解決策があります。
-                        </p>
+                <?php if ($data['show_empathy']): ?>
+                    <div class="problem-empathy">
+                        <div class="empathy-content">
+                            <?php if (!empty($data['empathy_text'])): ?>
+                                <p class="empathy-text">
+                                    <i class="fas fa-heart" style="color: <?php echo esc_attr($data['accent_color']); ?>;"></i>
+                                    <?php echo esc_html($data['empathy_text']); ?>
+                                </p>
+                            <?php endif; ?>
+                            
+                            <?php if (!empty($data['empathy_subtext'])): ?>
+                                <p class="empathy-subtext">
+                                    <?php echo esc_html($data['empathy_subtext']); ?>
+                                </p>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
         </section>
         <?php
@@ -142,6 +158,14 @@ class SmartProblemModule extends SmartModuleBase {
                 ];
             } elseif (in_array($field['name'], ['problem_bg_color', 'problem_text_color', 'problem_accent_color'])) {
                 $field['type'] = 'color_picker';
+            } elseif ($field['name'] === 'problem_show_empathy') {
+                $field['type'] = 'true_false';
+                $field['default_value'] = 1;
+                $field['ui'] = 1;
+                $field['label'] = '共感セクションを表示';
+            } elseif (in_array($field['name'], ['problem_empathy_text', 'problem_empathy_subtext'])) {
+                $field['type'] = 'textarea';
+                $field['rows'] = 3;
             }
         }
         
