@@ -162,6 +162,14 @@ abstract class SmartModuleBase {
                 $field['rows'] = 3;
             }
             
+            // 画像フィールドの場合の特別設定
+            if ($field_type === 'image') {
+                $field['return_format'] = 'url';
+                $field['preview_size'] = 'medium';
+                $field['library'] = 'all';
+                unset($field['placeholder']); // 画像フィールドにはプレースホルダーは不要
+            }
+            
             $fields[] = $field;
         }
         
@@ -176,11 +184,33 @@ abstract class SmartModuleBase {
             return 'true_false';
         } elseif (is_numeric($value)) {
             return 'number';
+        } elseif ($this->is_image_field($value)) {
+            return 'image';
         } elseif (strlen($value) > 50 || strpos($value, "\n") !== false) {
             return 'textarea';
         } else {
             return 'text';
         }
+    }
+    
+    /**
+     * 画像フィールドかどうかを判定
+     */
+    protected function is_image_field($value) {
+        // キー名に'image'が含まれる、またはURLが画像拡張子で終わる
+        if (is_string($value)) {
+            // URL形式の場合
+            if (filter_var($value, FILTER_VALIDATE_URL)) {
+                $path_info = pathinfo(parse_url($value, PHP_URL_PATH));
+                $image_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
+                return isset($path_info['extension']) && in_array(strtolower($path_info['extension']), $image_extensions);
+            }
+            // プレースホルダーURL（via.placeholder.com）の場合
+            if (strpos($value, 'placeholder.com') !== false || strpos($value, 'picsum.photos') !== false) {
+                return true;
+            }
+        }
+        return false;
     }
     
     /**

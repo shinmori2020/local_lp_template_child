@@ -58,8 +58,10 @@ class SmartModuleLoader {
             add_action('wp_footer', [$this, 'debug_info']);
         }
         
-        // 管理画面でのACF情報表示
-        add_action('admin_notices', [$this, 'admin_debug_info']);
+        // 管理画面でのACF情報表示（?smart_debug=1 の場合のみ）
+        if (isset($_GET['smart_debug']) && $_GET['smart_debug'] === '1' && current_user_can('administrator')) {
+            add_action('admin_notices', [$this, 'admin_debug_info']);
+        }
         
         error_log('SmartModuleLoader: システム初期化完了');
     }
@@ -81,6 +83,8 @@ class SmartModuleLoader {
         $this->prepare_module('hero');
         $this->prepare_module('problem');
         $this->prepare_module('benefits');
+        $this->prepare_module('features');
+        $this->prepare_module('cta');
         
         if (!empty($detected_modules)) {
             error_log('SmartModuleLoader: 検出されたモジュール - ' . implode(', ', $detected_modules));
@@ -456,6 +460,14 @@ class SmartModuleLoader {
                 $field['rows'] = 3;
             }
             
+            // 画像フィールドの場合の特別設定
+            if ($field_type === 'image') {
+                $field['return_format'] = 'url';
+                $field['preview_size'] = 'medium';
+                $field['library'] = 'all';
+                unset($field['placeholder']); // 画像フィールドにはプレースホルダーは不要
+            }
+            
             $fields[] = $field;
             error_log("SmartModuleLoader: フィールド追加 - {$field_name} ({$field_type})");
         }
@@ -512,11 +524,32 @@ class SmartModuleLoader {
             return 'true_false';
         } elseif (is_numeric($value)) {
             return 'number';
+        } elseif ($this->is_image_field($value)) {
+            return 'image';
         } elseif (strlen($value) > 50 || strpos($value, "\n") !== false) {
             return 'textarea';
         } else {
             return 'text';
         }
+    }
+    
+    /**
+     * 画像フィールドかどうかを判定
+     */
+    private function is_image_field($value) {
+        if (is_string($value)) {
+            // URL形式の場合
+            if (filter_var($value, FILTER_VALIDATE_URL)) {
+                $path_info = pathinfo(parse_url($value, PHP_URL_PATH));
+                $image_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
+                return isset($path_info['extension']) && in_array(strtolower($path_info['extension']), $image_extensions);
+            }
+            // プレースホルダーURL（via.placeholder.com）の場合
+            if (strpos($value, 'placeholder.com') !== false || strpos($value, 'picsum.photos') !== false) {
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
