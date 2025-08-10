@@ -50,6 +50,46 @@ if (!defined('ABSPATH')) { exit; }
     @media (max-width: 768px)  { .gpt5sl2-section { padding: 40px 0; } }
   </style>
   <style>
+    /* Slider Gallery 01 (gpt5slg1-) - main + thumbs sync, lightbox */
+    .gpt5slg1 { position: relative; margin-top: 56px; }
+    .gpt5slg1-viewport { position: relative; }
+    .gpt5slg1-main { position: relative; overflow: hidden; border-radius: 16px; background: #fff; border: 1px solid var(--border); }
+    .gpt5slg1-track { display: flex; will-change: transform; touch-action: pan-y; }
+    .gpt5slg1-slide { min-width: 100%; }
+    .gpt5slg1-figure { margin: 0; }
+    .gpt5slg1-media { aspect-ratio: 16/9; display: grid; place-items: center; background: linear-gradient(180deg,#f6f7f8,#eef1f4); }
+    .gpt5slg1-media-label { font-size: clamp(20px,3vw,28px); font-weight: 800; color: #2b2f33; text-shadow: 0 1px 2px rgba(16,24,40,.08); user-select: none; }
+    .gpt5slg1-caption { display:none; }
+    /* arrows */
+    .gpt5slg1-arrows { position: absolute; inset: 0; pointer-events: none; }
+    .gpt5slg1-arrowbar { position: absolute; top: 50%; left: 0; right: 0; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 8px; }
+    .gpt5slg1-iconbtn { pointer-events: auto; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.95); color:#111; cursor:pointer; box-shadow:0 2px 10px rgba(16,24,40,.08); position:relative; font-size:0; line-height:0; display:grid; place-items:center; }
+    .gpt5slg1-iconbtn::before { content:""; position:absolute; top:50%; left:50%; width:12px; height:12px; transform: translate(-50%,-50%); background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+    [data-gpt5slg1-action="prev"].gpt5slg1-iconbtn::before { transform: translate(-50%,-50%) scaleX(-1); }
+    /* thumbs */
+    .gpt5slg1-thumbbar { margin-top: 10px; border: 1px solid var(--border); border-radius: 12px; padding: 8px; background: #fff; }
+    .gpt5slg1-thumbs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(80px, 1fr); gap: 8px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .gpt5slg1-thumbs::-webkit-scrollbar { display: none; }
+    .gpt5slg1-thumb { appearance: none; border: 1px solid var(--border); background: linear-gradient(180deg,#f6f7f8,#eef1f4); border-radius: 10px; padding: 0; width: 100%; aspect-ratio: 4/3; cursor: pointer; position: relative; }
+    .gpt5slg1-thumb[aria-current="true"] { outline: 2px solid #111; outline-offset: 2px; }
+    .gpt5slg1-thumb::after { content: ""; position:absolute; inset:0; border-radius:inherit; box-shadow: inset 0 0 0 1px rgba(16,24,40,.04); }
+    /* lightbox */
+    .gpt5slg1-lightbox { position: fixed; inset: 0; display: none; place-items: center; background: rgba(13,20,28,.72); z-index: 1000; padding: 24px; }
+    .gpt5slg1-lightbox[aria-hidden="false"] { display: grid; }
+    .gpt5slg1-lightbox-figure { margin: 0; max-width: min(1200px, 92vw); width: 100%; }
+    .gpt5slg1-lightbox-media { width: 100%; aspect-ratio: 16/9; border-radius: 16px; background: linear-gradient(180deg,#f6f7f8,#eef1f4); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    .gpt5slg1-lightbox-close { position: absolute; top: 16px; right: 16px; appearance: none; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; padding: 10px 12px; font-weight: 700; cursor: pointer; }
+    .gpt5slg1-lightbox-arrows { position: absolute; left: 0; right: 0; display:flex; justify-content: space-between; align-items:center; top: 50%; transform: translateY(-50%); padding: 0 16px; }
+    .gpt5slg1-lightbox-btn { width: 48px; height: 48px; border-radius: 14px; border: 1px solid rgba(255,255,255,.25); background: rgba(13,20,28,.6); color:#fff; cursor:pointer; font-size:0; line-height:0; display:grid; place-items:center; }
+    .gpt5slg1-lightbox-btn::before { content:""; width:14px; height:14px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+    [data-gpt5slg1-lb="prev"].gpt5slg1-lightbox-btn::before { transform: scaleX(-1); }
+    /* focus */
+    .gpt5slg1-main:focus { outline: 2px solid #111; outline-offset: 2px; }
+    @media (max-width: 768px) {
+      .gpt5slg1-thumbs { grid-auto-columns: minmax(72px, 1fr); }
+    }
+  </style>
+  <style>
     /* Slider Hero 01 (gpt5slh1-) - fullbleed hero with progress bar */
     .gpt5slh1 { position: relative; margin-top: 40px; }
     .gpt5slh1-viewport { position: relative; overflow: hidden; border-radius: 16px; background: linear-gradient(180deg,#0b1220,#0e1628); min-height: clamp(360px, 48vw, 680px); outline: 1px solid rgba(255,255,255,.06); }
@@ -195,6 +235,52 @@ if (!defined('ABSPATH')) { exit; }
 
   </main>
 
+  <!-- Slider Gallery 01: main + thumbs sync (unique prefix: gpt5slg1-) -->
+  <section class="gpt5slg1 gpt5sl2-container gpt5sl2-section" aria-roledescription="carousel" aria-label="ギャラリー スライダー01" data-gpt5slg1>
+    <h2 class="gpt5sl2-title" style="margin-bottom:8px">Gallery 01（メイン＋サムネ同期 / ライトボックス）</h2>
+    <p class="gpt5sl2-desc">クリック・ドラッグ・キーボード操作に対応。サムネと同期、ライトボックスで拡大表示。</p>
+    <div class="gpt5slg1-viewport">
+      <div class="gpt5slg1-main" tabindex="0">
+        <div class="gpt5slg1-track js-gpt5slg1-track" role="list">
+          <?php for ($i = 1; $i <= 8; $i++): ?>
+            <figure class="gpt5slg1-slide gpt5slg1-figure" role="group" aria-label="スライド <?php echo $i; ?> / 8">
+              <div class="gpt5slg1-media" data-gpt5slg1-media-index="<?php echo $i-1; ?>" data-gpt5slg1-lightbox-trigger>
+                <span class="gpt5slg1-media-label">IMAGE <?php echo $i; ?></span>
+              </div>
+              <figcaption class="gpt5slg1-caption">キャプション <?php echo $i; ?></figcaption>
+            </figure>
+          <?php endfor; ?>
+        </div>
+        <div class="gpt5slg1-arrows" aria-hidden="true">
+          <div class="gpt5slg1-arrowbar">
+            <button class="gpt5slg1-iconbtn" data-gpt5slg1-action="prev" aria-label="前へ">◀</button>
+            <button class="gpt5slg1-iconbtn" data-gpt5slg1-action="next" aria-label="次へ">▶</button>
+          </div>
+        </div>
+      </div>
+      <div class="gpt5slg1-thumbbar" aria-label="サムネイル" role="tablist">
+        <div class="gpt5slg1-thumbs js-gpt5slg1-thumbs">
+          <?php for ($i = 1; $i <= 8; $i++): ?>
+            <button class="gpt5slg1-thumb" role="tab" aria-label="画像 <?php echo $i; ?>" data-gpt5slg1-thumb-index="<?php echo $i-1; ?>">
+            </button>
+          <?php endfor; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox for Gallery 01 -->
+  <div class="gpt5slg1-lightbox" aria-hidden="true" data-gpt5slg1-lightbox>
+    <button class="gpt5slg1-lightbox-close" type="button" data-gpt5slg1-lb="close" aria-label="閉じる">閉じる</button>
+    <div class="gpt5slg1-lightbox-arrows" aria-hidden="true">
+      <button class="gpt5slg1-lightbox-btn" data-gpt5slg1-lb="prev" aria-label="前へ"></button>
+      <button class="gpt5slg1-lightbox-btn" data-gpt5slg1-lb="next" aria-label="次へ"></button>
+    </div>
+    <figure class="gpt5slg1-lightbox-figure">
+      <div class="gpt5slg1-lightbox-media" data-gpt5slg1-lb-media></div>
+    </figure>
+  </div>
+
   
 
   <section class="gpt5sl2-container gpt5sl2-section">
@@ -326,6 +412,105 @@ if (!defined('ABSPATH')) { exit; }
     // Init
     makeDots();
     translate(false);
+  })();
+  </script>
+
+  <script>
+  // Slider Gallery 01: main + thumbs sync + lightbox, no external libs
+  (function(){
+    const root = document.querySelector('[data-gpt5slg1]');
+    if(!root) return;
+    const viewport = root.querySelector('.gpt5slg1-main');
+    const track = root.querySelector('.js-gpt5slg1-track');
+    const slides = Array.from(track.children);
+    const prevBtn = root.querySelector('[data-gpt5slg1-action="prev"]');
+    const nextBtn = root.querySelector('[data-gpt5slg1-action="next"]');
+    const thumbsWrap = root.querySelector('.js-gpt5slg1-thumbs');
+    const thumbs = Array.from(thumbsWrap.querySelectorAll('[data-gpt5slg1-thumb-index]'));
+    const lightbox = document.querySelector('[data-gpt5slg1-lightbox]');
+    const lbMedia = lightbox.querySelector('[data-gpt5slg1-lb-media]');
+    const lbClose = lightbox.querySelector('[data-gpt5slg1-lb="close"]');
+    const lbPrev = lightbox.querySelector('[data-gpt5slg1-lb="prev"]');
+    const lbNext = lightbox.querySelector('[data-gpt5slg1-lb="next"]');
+
+    let index = 0; let x = 0; let startX = 0; let isDown = false; let trackStartX = 0;
+
+    function vw(){ return viewport.clientWidth; }
+    function translate(withAnim){
+      track.style.transition = withAnim ? 'transform .35s ease' : 'none';
+      x = -index * vw();
+      track.style.transform = `translate3d(${x}px,0,0)`;
+      updateThumbs();
+    }
+    function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+    function go(to){ index = clamp(to, 0, slides.length - 1); translate(true); }
+    function next(){ go(index + 1); }
+    function prev(){ go(index - 1); }
+
+    function updateThumbs(){
+      thumbs.forEach((t,i)=> t.setAttribute('aria-current', String(i===index)) );
+      // ensure active thumb is visible
+      const active = thumbs[index];
+      if(active){
+        const wrapRect = thumbsWrap.getBoundingClientRect();
+        const rect = active.getBoundingClientRect();
+        if(rect.left < wrapRect.left) thumbsWrap.scrollBy({ left: rect.left - wrapRect.left - 8, behavior: 'smooth' });
+        if(rect.right > wrapRect.right) thumbsWrap.scrollBy({ left: rect.right - wrapRect.right + 8, behavior: 'smooth' });
+      }
+    }
+
+    // Drag / Swipe on main
+    function onDown(e){ isDown = true; track.style.transition='none'; startX = ('touches' in e ? e.touches[0].clientX : e.clientX); trackStartX = x; }
+    function onMove(e){ if(!isDown) return; const clientX = ('touches' in e ? e.touches[0].clientX : e.clientX); const dx = clientX - startX; x = trackStartX + dx; track.style.transform = `translate3d(${x}px,0,0)`; }
+    function onUp(){ if(!isDown) return; isDown = false; const moved = x - trackStartX; const threshold = vw() * 0.12; if(moved < -threshold) index++; if(moved > threshold) index--; go(index); }
+    viewport.addEventListener('mousedown', onDown); document.addEventListener('mousemove', onMove); document.addEventListener('mouseup', onUp);
+    viewport.addEventListener('touchstart', onDown, { passive: true }); document.addEventListener('touchmove', onMove, { passive: true }); document.addEventListener('touchend', onUp);
+
+    // Arrows & Keyboard
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    viewport.addEventListener('keydown', (e)=>{ if(e.key==='ArrowLeft'){ e.preventDefault(); prev(); } if(e.key==='ArrowRight'){ e.preventDefault(); next(); } if(e.key==='Enter'){ openLightbox(index); } });
+
+    // Thumbs click
+    thumbs.forEach((t)=>{
+      t.addEventListener('click', ()=>{ const i = Number(t.dataset.gpt5slg1ThumbIndex); index = i; translate(true); });
+    });
+
+    // Lightbox
+    function openLightbox(i){
+      if(!lightbox) return;
+      index = clamp(i, 0, slides.length - 1);
+      lightbox.setAttribute('aria-hidden','false');
+      updateLightbox();
+      document.addEventListener('keydown', onLbKey);
+    }
+    function closeLightbox(){
+      if(!lightbox) return;
+      lightbox.setAttribute('aria-hidden','true');
+      document.removeEventListener('keydown', onLbKey);
+    }
+    function updateLightbox(){ if(lbMedia){ lbMedia.textContent = ''; lbMedia.style.background = getComputedStyle(slides[index].querySelector('.gpt5slg1-media')).background; } }
+    function onLbKey(e){
+      if(e.key==='Escape'){ closeLightbox(); }
+      if(e.key==='ArrowLeft'){ e.preventDefault(); prev(); updateLightbox(); }
+      if(e.key==='ArrowRight'){ e.preventDefault(); next(); updateLightbox(); }
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', ()=>{ prev(); updateLightbox(); });
+    lbNext.addEventListener('click', ()=>{ next(); updateLightbox(); });
+    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+
+    // Open lightbox from main media
+    root.querySelectorAll('[data-gpt5slg1-lightbox-trigger]').forEach((el)=>{
+      el.addEventListener('click', ()=>{ const i = Number(el.dataset.gpt5slg1MediaIndex); openLightbox(i); });
+    });
+
+    // Resize
+    window.addEventListener('resize', ()=> translate(false));
+
+    // Init
+    translate(false);
+    updateThumbs();
   })();
   </script>
 
