@@ -142,11 +142,11 @@ if (!defined('ABSPATH')) { exit; }
 
         .gpt5bn-nav {
             position: absolute;
-            top: 70px;
+            top: 85px;
             transform: translateY(-50%);
             background: transparent;
             border: none;
-            width: 30px;
+            width: 72px;
             height: 20px;
             display: flex;
             align-items: center;
@@ -170,57 +170,67 @@ if (!defined('ABSPATH')) { exit; }
         }
 
         .gpt5bn-nav--prev {
-            left: 20px;
+            left: 100px;
         }
 
         .gpt5bn-nav--next {
-            right: 20px;
+            right:100px;
         }
 
         .gpt5bn-nav svg {
             display: none;
         }
         
-        /* →型の矢印（横線+矢印の組み合わせ） */
-        .gpt5bn-nav::before {
+        /* 左側の矢印：斜め線＋横線 (＼ーーー) */
+        .gpt5bn-nav--prev::before {
             content: '';
             position: absolute;
-            width: 62px;
+            width: 60px;
             height: 1px;
             background-color: #333;
             top: 50%;
+            right: 0;
             transform: translateY(-50%);
             transition: all 300ms ease;
         }
         
-        .gpt5bn-nav::after {
+        .gpt5bn-nav--prev::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            border-top: 1px solid #333;
-            top: 50%;
+            width: 12px;
+            height: 1px;
+            background-color: #333;
+            top: 5%;
+            right: 50px;
+            transform: translateY(-50%) rotate(-45deg);
+            transform-origin: right center;
             transition: all 300ms ease;
         }
         
-        /* 右向き矢印 → */
+        /* 右側の矢印：横線＋斜め線 (ーーー／) */
         .gpt5bn-nav--next::before {
-            left: -30px;
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background-color: #333;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: all 300ms ease;
         }
         
         .gpt5bn-nav--next::after {
-            right: 0px;
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 1px;
+            background-color: #333;
+            top: 5%;
+            left: 50px;
             transform: translateY(-50%) rotate(45deg);
-        }
-        
-        /* 左向き矢印 ← */
-        .gpt5bn-nav--prev::before {
-            right: -30px;
-        }
-        
-        .gpt5bn-nav--prev::after {
-            left: 0px;
-            transform: translateY(-50%) rotate(225deg);
+            transform-origin: left center;
+            transition: all 300ms ease;
         }
 
         .gpt5bn-controls {
@@ -288,6 +298,18 @@ if (!defined('ABSPATH')) { exit; }
             .gpt5bn-heading::after {
                 right: calc(50% - 100px);
             }
+
+            .gpt5bn-nav {
+                top: 85px;
+            }
+
+            .gpt5bn-nav--prev {
+                left: 5px;
+            }
+
+            .gpt5bn-nav--next {
+                right: 5px;
+            }
         }
 
         @media (min-width: 600px) and (max-width: 959px) {
@@ -299,6 +321,18 @@ if (!defined('ABSPATH')) { exit; }
             .gpt5bn-card {
                 width: calc((88vw - 40px) / 3);
             }
+
+            .gpt5bn-nav {
+                top: 90px;
+            }
+
+            .gpt5bn-nav--prev {
+                left: 20px;
+            }
+
+            .gpt5bn-nav--next {
+                right: 20px;
+            }
         }
 
         @media (min-width: 960px) {
@@ -309,6 +343,16 @@ if (!defined('ABSPATH')) { exit; }
 
             .gpt5bn-card {
                 width: calc((86vw - 96px) / 5);
+            }
+        }
+        @media (max-width: 400px) {
+            .gpt5bn-nav--next::before{
+                width: 30px;
+                left: 30px;
+            }
+            .gpt5bn-nav--prev::before{
+                width: 30px;
+                right: 30px;
             }
         }
 
@@ -336,15 +380,9 @@ if (!defined('ABSPATH')) { exit; }
         </div>
 
         <button class="gpt5bn-nav gpt5bn-nav--prev" id="gpt5bn-prev" aria-label="前のニュースを表示" aria-controls="gpt5bn-track">
-            <svg viewBox="0 0 24 24">
-                <polyline points="15,18 9,12 15,6"></polyline>
-            </svg>
         </button>
 
         <button class="gpt5bn-nav gpt5bn-nav--next" id="gpt5bn-next" aria-label="次のニュースを表示" aria-controls="gpt5bn-track">
-            <svg viewBox="0 0 24 24">
-                <polyline points="9,18 15,12 9,6"></polyline>
-            </svg>
         </button>
 
         <div class="gpt5bn-controls">
