@@ -1352,6 +1352,285 @@ if (!defined('ABSPATH')) { exit; }
                 transition: none;
             }
         }
+
+        /* ===== GPT5BD (Business Dashboard) Slider Styles ===== */
+        .gpt5bd-section {
+            width: 100vw;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gpt5bd-heading {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .gpt5bd-heading::before,
+        .gpt5bd-heading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #3182ce, #38a169);
+        }
+
+        .gpt5bd-heading::before {
+            left: calc(50% - 140px);
+        }
+
+        .gpt5bd-heading::after {
+            right: calc(50% - 140px);
+        }
+
+        .gpt5bd-title-en {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 0.15em;
+            text-shadow: 0 2px 10px rgba(49, 130, 206, 0.3);
+        }
+
+        .gpt5bd-title-ja {
+            font-size: 1.1rem;
+            color: #a0aec0;
+            margin: 10px 0 0 0;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .gpt5bd-viewport {
+            width: 100vw;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5bd-track {
+            display: flex;
+            gap: 25px;
+            transition: transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+            padding: 0 5vw;
+        }
+
+        .gpt5bd-card {
+            flex-shrink: 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+            position: relative;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gpt5bd-card:hover {
+            box-shadow: 0 6px 30px rgba(49, 130, 206, 0.15);
+        }
+
+        .gpt5bd-card-image {
+            aspect-ratio: 16 / 10;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gpt5bd-card-content {
+            padding: 20px;
+            background: #ffffff;
+        }
+
+        .gpt5bd-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .gpt5bd-card-category {
+            background: linear-gradient(135deg, #3182ce, #38a169);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .gpt5bd-card-date {
+            font-size: 0.8rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .gpt5bd-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .gpt5bd-card-description {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.5;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .gpt5bd-nav {
+            position: absolute;
+            top: calc(50% + 50px);
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 300ms ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .gpt5bd-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(49, 130, 206, 0.3);
+        }
+
+        .gpt5bd-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .gpt5bd-nav--prev {
+            left: 25px;
+        }
+
+        .gpt5bd-nav--next {
+            right: 25px;
+        }
+
+        .gpt5bd-nav svg {
+            width: 24px;
+            height: 24px;
+            fill: #2d3748;
+            transition: fill 300ms ease-out;
+        }
+
+        .gpt5bd-nav:hover svg {
+            fill: #3182ce;
+        }
+
+        .gpt5bd-status {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 599px) {
+            .gpt5bd-section {
+                padding: 60px 0;
+            }
+
+            .gpt5bd-track {
+                gap: 20px;
+                padding: 0 5vw;
+            }
+
+            .gpt5bd-card {
+                width: calc(85vw - 10px);
+            }
+
+            .gpt5bd-title-en {
+                font-size: 2.2rem;
+            }
+
+            .gpt5bd-nav {
+                width: 50px;
+                height: 50px;
+            }
+
+            .gpt5bd-nav svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .gpt5bd-nav--prev {
+                left: 15px;
+            }
+
+            .gpt5bd-nav--next {
+                right: 15px;
+            }
+
+            .gpt5bd-heading::before {
+                left: calc(50% - 120px);
+            }
+
+            .gpt5bd-heading::after {
+                right: calc(50% - 120px);
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 959px) {
+            .gpt5bd-track {
+                gap: 25px;
+                padding: 0 6vw;
+            }
+
+            .gpt5bd-card {
+                width: calc(50vw - 20px);
+            }
+
+            .gpt5bd-nav--prev {
+                left: 20px;
+            }
+
+            .gpt5bd-nav--next {
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .gpt5bd-track {
+                gap: 30px;
+                padding: 0 8vw;
+            }
+
+            .gpt5bd-card {
+                width: calc(33.333vw - 25px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gpt5bd-track,
+            .gpt5bd-card,
+            .gpt5bd-nav {
+                transition: none;
+            }
+        }
     </style>
 </head>
 
@@ -1461,6 +1740,34 @@ if (!defined('ABSPATH')) { exit; }
         </div>
 
         <div id="gpt5nt-status" class="gpt5nt-status" aria-live="polite"></div>
+    </main>
+
+    <!-- GPT5BD Business Dashboard Slider -->
+    <main class="gpt5bd-section" aria-label="ビジネスインサイト">
+        <div class="gpt5bd-heading">
+            <h2 class="gpt5bd-title-en">INSIGHTS</h2>
+            <p class="gpt5bd-title-ja">インサイト</p>
+        </div>
+
+        <div class="gpt5bd-viewport" id="gpt5bd-viewport">
+            <div class="gpt5bd-track" id="gpt5bd-track">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <button class="gpt5bd-nav gpt5bd-nav--prev" id="gpt5bd-prev" aria-label="前のインサイトを表示" aria-controls="gpt5bd-track">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </button>
+
+        <button class="gpt5bd-nav gpt5bd-nav--next" id="gpt5bd-next" aria-label="次のインサイトを表示" aria-controls="gpt5bd-track">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </button>
+
+        <div id="gpt5bd-status" class="gpt5bd-status" aria-live="polite"></div>
     </main>
 
     <script>
@@ -2961,6 +3268,307 @@ if (!defined('ABSPATH')) { exit; }
                 document.addEventListener('DOMContentLoaded', gpt5ntInit);
             } else {
                 gpt5ntInit();
+            }
+        })();
+
+        // ===== GPT5BD (Business Dashboard) Slider Script =====
+        (function() {
+            'use strict';
+
+            // Constants
+            const GPT5BD_CLONE_COUNT = 3;
+            const GPT5BD_AUTO_INTERVAL = 4500;
+
+            // Elements
+            const gpt5bdSection = document.querySelector('.gpt5bd-section');
+            const gpt5bdTrack = document.getElementById('gpt5bd-track');
+            const gpt5bdViewport = document.getElementById('gpt5bd-viewport');
+            const gpt5bdPrevBtn = document.getElementById('gpt5bd-prev');
+            const gpt5bdNextBtn = document.getElementById('gpt5bd-next');
+            const gpt5bdStatus = document.getElementById('gpt5bd-status');
+
+            // State
+            let gpt5bdCurrentIndex = GPT5BD_CLONE_COUNT;
+            let gpt5bdIsAnimating = false;
+            let gpt5bdAutoTimer = null;
+            let gpt5bdTotalCards = 0;
+            let gpt5bdCardWidth = 0;
+            let gpt5bdCardGap = 0;
+
+            // Sample data
+            const gpt5bdInsightsData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=375&fit=crop',
+                    category: 'ANALYTICS',
+                    date: '2024.01.15',
+                    title: 'データドリブン戦略の最新トレンド',
+                    description: 'ビジネス成長を加速させる分析手法と実践的なアプローチについて解説します。'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop',
+                    category: 'STRATEGY',
+                    date: '2024.01.12',
+                    title: 'デジタル変革における課題と解決策',
+                    description: '企業のDXプロジェクトで直面する主要な課題とその効果的な解決方法。'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=375&fit=crop',
+                    category: 'INNOVATION',
+                    date: '2024.01.10',
+                    title: '次世代テクノロジーの活用事例',
+                    description: 'AI、IoT、ブロックチェーンを活用した革新的なビジネスモデルの紹介。'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600&h=375&fit=crop',
+                    category: 'RESEARCH',
+                    date: '2024.01.08',
+                    title: '市場調査から見る業界動向',
+                    description: '最新の市場データに基づいた業界トレンドの分析と今後の予測。'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=375&fit=crop',
+                    category: 'GROWTH',
+                    date: '2024.01.05',
+                    title: 'スケーラブルな組織運営のコツ',
+                    description: '急成長する企業が直面する組織課題とその解決に向けた実践的なアプローチ。'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=375&fit=crop',
+                    category: 'INSIGHTS',
+                    date: '2024.01.03',
+                    title: 'カスタマーエクスペリエンス向上戦略',
+                    description: '顧客満足度を高めるための体験設計とデジタル施策の効果的な実装方法。'
+                }
+            ];
+
+            function gpt5bdInit() {
+                if (!gpt5bdSection) return;
+
+                gpt5bdTotalCards = gpt5bdInsightsData.length;
+                gpt5bdGenerateCards();
+                gpt5bdCreateClones();
+                gpt5bdCalculateLayout();
+                gpt5bdBindEvents();
+                gpt5bdStartAutoPlay();
+                gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+            }
+
+            function gpt5bdGenerateCards() {
+                if (!gpt5bdTrack) return;
+
+                gpt5bdTrack.innerHTML = '';
+                
+                gpt5bdInsightsData.forEach((insight, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'gpt5bd-card';
+                    card.setAttribute('data-gpt5bd-index', index);
+                    
+                    card.innerHTML = `
+                        <img src="${insight.image}" alt="${insight.title}" class="gpt5bd-card-image">
+                        <div class="gpt5bd-card-content">
+                            <div class="gpt5bd-card-meta">
+                                <span class="gpt5bd-card-category">${insight.category}</span>
+                                <span class="gpt5bd-card-date">${insight.date}</span>
+                            </div>
+                            <h3 class="gpt5bd-card-title">${insight.title}</h3>
+                            <p class="gpt5bd-card-description">${insight.description}</p>
+                        </div>
+                    `;
+                    
+                    gpt5bdTrack.appendChild(card);
+                });
+            }
+
+            function gpt5bdCreateClones() {
+                if (!gpt5bdTrack || gpt5bdTotalCards === 0) return;
+
+                const cards = Array.from(gpt5bdTrack.children);
+                
+                for (let i = 0; i < GPT5BD_CLONE_COUNT; i++) {
+                    const cloneAfter = cards[i].cloneNode(true);
+                    cloneAfter.setAttribute('data-gpt5bd-clone', 'after');
+                    gpt5bdTrack.appendChild(cloneAfter);
+                    
+                    const cloneBefore = cards[gpt5bdTotalCards - 1 - i].cloneNode(true);
+                    cloneBefore.setAttribute('data-gpt5bd-clone', 'before');
+                    gpt5bdTrack.insertBefore(cloneBefore, gpt5bdTrack.firstChild);
+                }
+            }
+
+            function gpt5bdCalculateLayout() {
+                if (!gpt5bdTrack || !gpt5bdViewport) return;
+
+                const viewportWidth = gpt5bdViewport.offsetWidth;
+                const computedStyle = getComputedStyle(gpt5bdTrack);
+                const paddingLeft = parseFloat(computedStyle.paddingLeft);
+                const paddingRight = parseFloat(computedStyle.paddingRight);
+                const availableWidth = viewportWidth - paddingLeft - paddingRight;
+                
+                gpt5bdCardGap = parseFloat(computedStyle.gap) || 0;
+
+                if (window.innerWidth < 600) {
+                    gpt5bdCardWidth = availableWidth - 10;
+                } else if (window.innerWidth < 960) {
+                    gpt5bdCardWidth = availableWidth / 2 - gpt5bdCardGap / 2;
+                } else {
+                    gpt5bdCardWidth = availableWidth / 3 - (gpt5bdCardGap * 2) / 3;
+                }
+
+                const cards = gpt5bdTrack.children;
+                for (let card of cards) {
+                    card.style.width = `${gpt5bdCardWidth}px`;
+                }
+            }
+
+            function gpt5bdBindEvents() {
+                if (gpt5bdPrevBtn) {
+                    gpt5bdPrevBtn.addEventListener('click', gpt5bdPrev);
+                }
+
+                if (gpt5bdNextBtn) {
+                    gpt5bdNextBtn.addEventListener('click', gpt5bdNext);
+                }
+
+                gpt5bdSection.addEventListener('mouseenter', gpt5bdStopAutoPlay);
+                gpt5bdSection.addEventListener('mouseleave', gpt5bdStartAutoPlay);
+
+                let gpt5bdTouchStartX = 0;
+                let gpt5bdTouchEndX = 0;
+
+                gpt5bdViewport.addEventListener('touchstart', (e) => {
+                    gpt5bdTouchStartX = e.touches[0].clientX;
+                    gpt5bdStopAutoPlay();
+                }, { passive: true });
+
+                gpt5bdViewport.addEventListener('touchend', (e) => {
+                    gpt5bdTouchEndX = e.changedTouches[0].clientX;
+                    const diff = gpt5bdTouchStartX - gpt5bdTouchEndX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            gpt5bdNext();
+                        } else {
+                            gpt5bdPrev();
+                        }
+                    }
+                    
+                    gpt5bdStartAutoPlay();
+                }, { passive: true });
+
+                window.addEventListener('resize', gpt5bdDebounce(gpt5bdHandleResize, 250));
+            }
+
+            function gpt5bdDebounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            function gpt5bdNext() {
+                if (gpt5bdIsAnimating || gpt5bdTotalCards <= 1) return;
+
+                gpt5bdIsAnimating = true;
+                gpt5bdCurrentIndex++;
+                gpt5bdSetTransition(true);
+                gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+                gpt5bdHandleInfiniteLoop();
+                gpt5bdUpdateStatus();
+            }
+
+            function gpt5bdPrev() {
+                if (gpt5bdIsAnimating || gpt5bdTotalCards <= 1) return;
+
+                gpt5bdIsAnimating = true;
+                gpt5bdCurrentIndex--;
+                gpt5bdSetTransition(true);
+                gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+                gpt5bdHandleInfiniteLoop();
+                gpt5bdUpdateStatus();
+            }
+
+            function gpt5bdSetTransition(enabled) {
+                if (!gpt5bdTrack) return;
+                gpt5bdTrack.style.transition = enabled ? 'transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+            }
+
+            function gpt5bdTranslateToIndex(index) {
+                if (!gpt5bdTrack) return;
+                const translateX = -(index * (gpt5bdCardWidth + gpt5bdCardGap));
+                gpt5bdTrack.style.transform = `translateX(${translateX}px)`;
+            }
+
+            function gpt5bdGetRealIndex(index) {
+                if (index < GPT5BD_CLONE_COUNT) {
+                    return gpt5bdTotalCards - (GPT5BD_CLONE_COUNT - index);
+                } else if (index >= GPT5BD_CLONE_COUNT + gpt5bdTotalCards) {
+                    return index - GPT5BD_CLONE_COUNT - gpt5bdTotalCards;
+                } else {
+                    return index - GPT5BD_CLONE_COUNT;
+                }
+            }
+
+            function gpt5bdUpdateStatus() {
+                if (!gpt5bdStatus) return;
+                const realIndex = gpt5bdGetRealIndex(gpt5bdCurrentIndex);
+                gpt5bdStatus.textContent = `${realIndex + 1} / ${gpt5bdTotalCards}`;
+            }
+
+            function gpt5bdHandleInfiniteLoop() {
+                setTimeout(() => {
+                    if (gpt5bdCurrentIndex < GPT5BD_CLONE_COUNT) {
+                        gpt5bdCurrentIndex = gpt5bdCurrentIndex + gpt5bdTotalCards;
+                        gpt5bdSetTransition(false);
+                        gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+                    }
+                    else if (gpt5bdCurrentIndex >= GPT5BD_CLONE_COUNT + gpt5bdTotalCards) {
+                        gpt5bdCurrentIndex = gpt5bdCurrentIndex - gpt5bdTotalCards;
+                        gpt5bdSetTransition(false);
+                        gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+                    }
+                    
+                    setTimeout(() => {
+                        gpt5bdIsAnimating = false;
+                    }, 50);
+                }, 450);
+            }
+
+            function gpt5bdStartAutoPlay() {
+                gpt5bdStopAutoPlay();
+                if (gpt5bdTotalCards > 1) {
+                    gpt5bdAutoTimer = setInterval(gpt5bdNext, GPT5BD_AUTO_INTERVAL);
+                }
+            }
+
+            function gpt5bdStopAutoPlay() {
+                if (gpt5bdAutoTimer) {
+                    clearInterval(gpt5bdAutoTimer);
+                    gpt5bdAutoTimer = null;
+                }
+            }
+
+            function gpt5bdHandleResize() {
+                const realIndex = gpt5bdGetRealIndex(gpt5bdCurrentIndex);
+                
+                const clones = gpt5bdTrack.querySelectorAll('[data-gpt5bd-clone]');
+                clones.forEach(clone => clone.remove());
+                
+                gpt5bdCreateClones();
+                gpt5bdCalculateLayout();
+                
+                gpt5bdCurrentIndex = realIndex + GPT5BD_CLONE_COUNT;
+                gpt5bdTranslateToIndex(gpt5bdCurrentIndex);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', gpt5bdInit);
+            } else {
+                gpt5bdInit();
             }
         })();
     </script>
