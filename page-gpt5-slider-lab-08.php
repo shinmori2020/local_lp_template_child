@@ -4282,6 +4282,249 @@ if (!defined('ABSPATH')) { exit; }
             }
         }
 
+        /* ===== Swiper Slider 11 Styles (円形オーバーラップスライダー) ===== */
+        .gpt5sw-sl11-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 30px;
+            padding: 80px 40px 120px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .gpt5sw-sl11-swiper {
+            position: relative;
+            height: 350px;
+            overflow: visible;
+        }
+
+        .gpt5sw-sl11-slide {
+            width: 300px !important;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gpt5sw-sl11-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid rgba(102, 126, 234, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl11-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .gpt5sw-sl11-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .gpt5sw-sl11-circle:hover .gpt5sw-sl11-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .gpt5sw-sl11-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        .gpt5sw-sl11-description {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .gpt5sw-sl11-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .gpt5sw-sl11-circle:hover .gpt5sw-sl11-overlay {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gpt5sw-sl11-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+        }
+
+        .gpt5sw-sl11-circle:hover .gpt5sw-sl11-btn {
+            transform: translateY(0);
+            background: white;
+        }
+
+        .gpt5sw-sl11-navigation {
+            position: absolute;
+            top: 50%;
+            width: calc(100% + 140px);
+            left: -70px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gpt5sw-sl11-prev,
+        .gpt5sw-sl11-next {
+            display: none;
+        }
+
+        .gpt5sw-sl11-pagination {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            /* transform: translateX(-50%); */
+            z-index: 15;
+            text-align: center;
+            width: 100%;
+        }
+
+        .gpt5sw-sl11-pagination .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+        }
+
+        .gpt5sw-sl11-pagination .swiper-pagination-bullet-active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        .gpt5sw-sl11-progress-ring {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .gpt5sw-sl11-progress-svg {
+            transform: rotate(-90deg);
+        }
+
+        .gpt5sw-sl11-progress-track {
+            opacity: 0.3;
+        }
+
+        .gpt5sw-sl11-progress-bar {
+            stroke-dasharray: 226;
+            stroke-dashoffset: 226;
+            transition: stroke-dashoffset 0.3s ease;
+        }
+
+        .gpt5sw-sl11-progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #667eea;
+            text-align: center;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .gpt5sw-sl11-container {
+                padding: 60px 20px;
+            }
+            
+            .gpt5sw-sl11-circle {
+                width: 250px;
+                height: 250px;
+                padding: 30px;
+            }
+            
+            .gpt5sw-sl11-slide {
+                width: 250px !important;
+                height: 300px;
+            }
+            
+            .gpt5sw-sl11-swiper {
+                height: 300px;
+            }
+            
+            .gpt5sw-sl11-icon {
+                font-size: 3rem;
+            }
+            
+            .gpt5sw-sl11-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl11-container {
+                padding: 40px 15px;
+            }
+            
+            .gpt5sw-sl11-circle {
+                width: 200px;
+                height: 200px;
+                padding: 20px;
+            }
+            
+            .gpt5sw-sl11-slide {
+                width: 200px !important;
+                height: 250px;
+            }
+            
+            .gpt5sw-sl11-swiper {
+                height: 250px;
+            }
+            
+            .gpt5sw-sl11-navigation {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 
@@ -5177,6 +5420,106 @@ if (!defined('ABSPATH')) { exit; }
                 </div>
             </div>
         </section>
+
+        <div class="gpt5sw-slider-divider"></div>
+        <section class="gpt5sw-slider-section">
+            <div class="gpt5sw-slider-header">
+                <h2 class="gpt5sw-slider-title">11. 円形オーバーラップスライダー</h2>
+                <p class="gpt5sw-slider-description">美しい円形デザインで重なり合うモダンなスライダー</p>
+            </div>
+            <div class="gpt5sw-sl11-container">
+                <div class="swiper gpt5sw-sl11-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- 6つの円形スライド -->
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">🎨</div>
+                                <h3 class="gpt5sw-sl11-title">Creative Design</h3>
+                                <p class="gpt5sw-sl11-description">革新的なデザインソリューション</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">💻</div>
+                                <h3 class="gpt5sw-sl11-title">Web Development</h3>
+                                <p class="gpt5sw-sl11-description">最新技術による開発サービス</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">📱</div>
+                                <h3 class="gpt5sw-sl11-title">Mobile Apps</h3>
+                                <p class="gpt5sw-sl11-description">ユーザーフレンドリーなアプリ開発</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">📈</div>
+                                <h3 class="gpt5sw-sl11-title">Digital Marketing</h3>
+                                <p class="gpt5sw-sl11-description">効果的なマーケティング戦略</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">🛠️</div>
+                                <h3 class="gpt5sw-sl11-title">Technical Support</h3>
+                                <p class="gpt5sw-sl11-description">24/7包括的サポート</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide gpt5sw-sl11-slide">
+                            <div class="gpt5sw-sl11-circle">
+                                <div class="gpt5sw-sl11-icon">🚀</div>
+                                <h3 class="gpt5sw-sl11-title">Business Growth</h3>
+                                <p class="gpt5sw-sl11-description">持続可能な成長戦略</p>
+                                <div class="gpt5sw-sl11-overlay">
+                                    <button class="gpt5sw-sl11-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="gpt5sw-sl11-navigation">
+                    <div class="swiper-button-prev gpt5sw-sl11-prev"></div>
+                    <div class="swiper-button-next gpt5sw-sl11-next"></div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination gpt5sw-sl11-pagination"></div>
+                
+                <!-- Progress Ring -->
+                <div class="gpt5sw-sl11-progress-ring">
+                    <svg class="gpt5sw-sl11-progress-svg" width="80" height="80">
+                        <circle class="gpt5sw-sl11-progress-track" cx="40" cy="40" r="36" fill="none" stroke="#e0e0e0" stroke-width="4"/>
+                        <circle class="gpt5sw-sl11-progress-bar" cx="40" cy="40" r="36" fill="none" stroke="#667eea" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <div class="gpt5sw-sl11-progress-text">
+                        <span id="gpt5sw-sl11-current">1</span>/<span id="gpt5sw-sl11-total">6</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Swiper.js JavaScript -->
@@ -5521,6 +5864,12 @@ if (!defined('ABSPATH')) { exit; }
                     initSwiper10SplitDual();
                     console.log('=== Swiper 10 initialization complete ===');
                 }, 1000);
+
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 11 initialization ===');
+                    initSwiperSl11();
+                    console.log('=== Swiper 11 initialization complete ===');
+                }, 1100);
             }
 
             // Generate slider 01 content
@@ -7603,6 +7952,113 @@ if (!defined('ABSPATH')) { exit; }
                     const total = slider05Data.length;
                     currentElement.textContent = realIndex;
                     totalElement.textContent = total;
+                }
+            }
+
+            // Slider 11: 円形オーバーラップスライダー
+            let swiperSl11 = null;
+
+            function initSwiperSl11() {
+                const container = document.querySelector('.gpt5sw-sl11-container');
+                if (!container) {
+                    console.error('円形オーバーラップスライダー container not found');
+                    return;
+                }
+
+                try {
+                    swiperSl11 = new Swiper(container.querySelector('.gpt5sw-sl11-swiper'), {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        loop: true,
+                        speed: 800,
+                        initialSlide: 0,
+                        
+                        autoplay: {
+                            delay: 4000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        },
+                        
+                        navigation: {
+                            nextEl: container.querySelector('.gpt5sw-sl11-next'),
+                            prevEl: container.querySelector('.gpt5sw-sl11-prev'),
+                        },
+                        
+                        pagination: {
+                            el: container.querySelector('.gpt5sw-sl11-pagination'),
+                            clickable: true,
+                        },
+                        
+                        keyboard: {
+                            enabled: true,
+                            onlyInViewport: true,
+                        },
+                        
+                        grabCursor: true,
+                        
+                        breakpoints: {
+                            // モバイル
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            // タブレット
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 25,
+                            },
+                            // デスクトップ
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            }
+                        },
+                        
+                        on: {
+                            init: function() {
+                                console.log('円形オーバーラップスライダー initialized successfully');
+                                updateSl11Progress();
+                                updateSl11Counter();
+                            },
+                            slideChange: function() {
+                                updateSl11Progress();
+                                updateSl11Counter();
+                            }
+                        }
+                    });
+                    
+                    // ボタンクリックイベント
+                    container.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('gpt5sw-sl11-btn')) {
+                            console.log('Circle button clicked:', e.target.closest('.gpt5sw-sl11-slide'));
+                        }
+                    });
+                    
+                } catch (error) {
+                    console.error('円形オーバーラップスライダー initialization failed:', error);
+                }
+            }
+
+            function updateSl11Progress() {
+                if (!swiperSl11) return;
+                
+                const progressBar = document.querySelector('.gpt5sw-sl11-progress-bar');
+                if (progressBar) {
+                    const progress = ((swiperSl11.realIndex + 1) / 6) * 226;
+                    progressBar.style.strokeDashoffset = 226 - progress;
+                }
+            }
+
+            function updateSl11Counter() {
+                if (!swiperSl11) return;
+                
+                const currentEl = document.getElementById('gpt5sw-sl11-current');
+                const totalEl = document.getElementById('gpt5sw-sl11-total');
+                
+                if (currentEl && totalEl) {
+                    currentEl.textContent = swiperSl11.realIndex + 1;
+                    totalEl.textContent = '6';
                 }
             }
 

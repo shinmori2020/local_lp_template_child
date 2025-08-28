@@ -23,7 +23,9 @@
       "Bash(mv:*)",
       "WebSearch",
       "Bash(curl:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Read(C:\\Users\\kiyos_000\\Pictures\\Screenshots/**)",
+      "Read(C:\\Users\\kiyos_000\\Pictures\\Screenshots/**)"
     ],
     "deny": []
   }
