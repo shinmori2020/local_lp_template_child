@@ -1765,6 +1765,2523 @@ if (!defined('ABSPATH')) { exit; }
                 right: 10px;
             }
         }
+
+        /* ===== Swiper Slider 06 Styles (Premium Product Slider) ===== */
+        .gpt5sw-sl06-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl06-main {
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .gpt5sw-sl06-slide-content {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .gpt5sw-sl06-product-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl06-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gpt5sw-sl06-slide-content:hover .gpt5sw-sl06-product-image img {
+            transform: scale(1.05);
+        }
+
+        .gpt5sw-sl06-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e74c3c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gpt5sw-sl06-badge.premium {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gpt5sw-sl06-badge.sale {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gpt5sw-sl06-product-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .gpt5sw-sl06-category {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .gpt5sw-sl06-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+        }
+
+        .gpt5sw-sl06-description {
+            font-size: 1rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+
+        .gpt5sw-sl06-specs {
+            margin-bottom: 30px;
+        }
+
+        .gpt5sw-sl06-spec {
+            display: block;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        .gpt5sw-sl06-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .gpt5sw-sl06-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .gpt5sw-sl06-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .gpt5sw-sl06-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Navigation */
+        .gpt5sw-sl06-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gpt5sw-sl06-prev,
+        .gpt5sw-sl06-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            color: #667eea;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+        }
+
+        .gpt5sw-sl06-prev::after {
+            content: '‹';
+        }
+
+        .gpt5sw-sl06-next::after {
+            content: '›';
+        }
+
+        .gpt5sw-sl06-prev:hover,
+        .gpt5sw-sl06-next:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: scale(1.1);
+        }
+
+        /* Pagination */
+        .gpt5sw-sl06-pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gpt5sw-sl06-pagination .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(102, 126, 234, 0.3);
+            opacity: 1;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+        }
+
+        .gpt5sw-sl06-pagination .swiper-pagination-bullet-active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        /* Thumbnails */
+        .gpt5sw-sl06-thumbs {
+            margin-top: 30px;
+        }
+
+        .gpt5sw-sl06-thumbs-swiper {
+            padding: 0;
+        }
+
+        .gpt5sw-sl06-thumb {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .gpt5sw-sl06-thumb:hover,
+        .gpt5sw-sl06-thumb.swiper-slide-thumb-active {
+            opacity: 1;
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .gpt5sw-sl06-thumb img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .gpt5sw-sl06-thumb span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Controls */
+        .gpt5sw-sl06-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .gpt5sw-sl06-counter {
+            background: white;
+            color: #2c3e50;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gpt5sw-sl06-autoplay {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gpt5sw-sl06-autoplay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-sl06-container {
+                padding: 40px 20px;
+            }
+
+            .gpt5sw-sl06-slide-content {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .gpt5sw-sl06-product-image {
+                height: 250px;
+            }
+
+            .gpt5sw-sl06-product-info {
+                padding: 30px;
+            }
+
+            .gpt5sw-sl06-title {
+                font-size: 1.5rem;
+            }
+
+            .gpt5sw-sl06-price {
+                font-size: 1.8rem;
+            }
+
+            .gpt5sw-sl06-price-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .gpt5sw-sl06-controls {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .gpt5sw-sl06-thumbs-swiper {
+                padding: 0;
+            }
+
+            .gpt5sw-sl06-thumb img {
+                width: 60px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl06-container {
+                padding: 30px 15px;
+            }
+
+            .gpt5sw-sl06-product-info {
+                padding: 20px;
+            }
+
+            .gpt5sw-sl06-title {
+                font-size: 1.3rem;
+            }
+
+            .gpt5sw-sl06-description {
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-sl06-price {
+                font-size: 1.6rem;
+            }
+
+            .gpt5sw-sl06-prev,
+            .gpt5sw-sl06-next {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .gpt5sw-sl06-navigation {
+                padding: 0 10px;
+            }
+        }
+
+        /* ===== Swiper Slider 07 Styles (Minimal Card Slider) ===== */
+        .gpt5sw-sl07-container {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl07-main {
+            margin-bottom: 40px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl07-card {
+            display: flex;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            min-height: 300px;
+        }
+
+        .gpt5sw-sl07-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .gpt5sw-sl07-image {
+            flex: 0 0 40%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl07-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gpt5sw-sl07-card:hover .gpt5sw-sl07-image img {
+            transform: scale(1.05);
+        }
+
+        .gpt5sw-sl07-info {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gpt5sw-sl07-category {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #6c757d;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .gpt5sw-sl07-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0 0 16px 0;
+            line-height: 1.3;
+        }
+
+        .gpt5sw-sl07-description {
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+        }
+
+        .gpt5sw-sl07-btn {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gpt5sw-sl07-btn:hover {
+            background: #495057;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(33, 37, 41, 0.2);
+        }
+
+        /* Navigation */
+        .gpt5sw-sl07-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gpt5sw-sl07-nav-prev,
+        .gpt5sw-sl07-nav-next {
+            width: 48px;
+            height: 48px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #212529;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            pointer-events: auto;
+        }
+
+        .gpt5sw-sl07-nav-prev::after {
+            content: '‹';
+        }
+
+        .gpt5sw-sl07-nav-next::after {
+            content: '›';
+        }
+
+        .gpt5sw-sl07-nav-prev:hover,
+        .gpt5sw-sl07-nav-next:hover {
+            background: #212529;
+            color: white;
+            border-color: #212529;
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(33, 37, 41, 0.2);
+        }
+
+        /* Pagination */
+        .gpt5sw-sl07-pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gpt5sw-sl07-pagination .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: rgba(33, 37, 41, 0.2);
+            opacity: 1;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .gpt5sw-sl07-pagination .swiper-pagination-bullet-active {
+            background: #212529;
+            transform: scale(1.2);
+        }
+
+        /* Thumbnails */
+        .gpt5sw-sl07-thumbs {
+            margin-top: 30px;
+        }
+
+        .gpt5sw-sl07-thumbs-swiper {
+            padding: 0;
+        }
+
+        .gpt5sw-sl07-thumb {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .gpt5sw-sl07-thumb:hover,
+        .gpt5sw-sl07-thumb.swiper-slide-thumb-active {
+            opacity: 1;
+            border-color: #212529;
+            background: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .gpt5sw-sl07-thumb img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .gpt5sw-sl07-thumb span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        /* Controls */
+        .gpt5sw-sl07-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .gpt5sw-sl07-counter {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .gpt5sw-sl07-autoplay {
+            background: #212529;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gpt5sw-sl07-autoplay:hover {
+            background: #495057;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(33, 37, 41, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-sl07-container {
+                padding: 40px 20px;
+            }
+
+            .gpt5sw-sl07-card {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .gpt5sw-sl07-image {
+                flex: none;
+                height: 200px;
+            }
+
+            .gpt5sw-sl07-info {
+                padding: 30px;
+            }
+
+            .gpt5sw-sl07-title {
+                font-size: 1.5rem;
+            }
+
+            .gpt5sw-sl07-description {
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-sl07-controls {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .gpt5sw-sl07-thumbs-swiper {
+                padding: 0;
+            }
+
+            .gpt5sw-sl07-thumb img {
+                width: 60px;
+                height: 45px;
+            }
+
+            .gpt5sw-sl07-nav-prev,
+            .gpt5sw-sl07-nav-next {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl07-container {
+                padding: 30px 15px;
+            }
+
+            .gpt5sw-sl07-info {
+                padding: 20px;
+            }
+
+            .gpt5sw-sl07-title {
+                font-size: 1.3rem;
+            }
+
+            .gpt5sw-sl07-description {
+                font-size: 0.85rem;
+            }
+
+            .gpt5sw-sl07-navigation {
+                padding: 0 10px;
+            }
+
+            .gpt5sw-sl07-nav-prev,
+            .gpt5sw-sl07-nav-next {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .gpt5sw-sl07-thumb {
+                padding: 8px;
+            }
+
+            .gpt5sw-sl07-thumb img {
+                width: 50px;
+                height: 38px;
+            }
+        }
+
+        /* ===== Swiper Slider 08 Styles (Mobile Native Card Slider) ===== */
+        .gpt5sw-sl08-container {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .gpt5sw-sl08-main {
+            margin-bottom: 30px;
+            border-radius: 16px;
+            overflow: visible;
+        }
+
+        .gpt5sw-sl08-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: 480px;
+        }
+
+        .gpt5sw-sl08-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 123, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .gpt5sw-sl08-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl08-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease-out;
+        }
+
+        .gpt5sw-sl08-card:hover .gpt5sw-sl08-image img {
+            transform: scale(1.05);
+        }
+
+        .gpt5sw-sl08-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #007AFF;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+        }
+
+        .gpt5sw-sl08-badge.new {
+            background: #34C759;
+            box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);
+        }
+
+        .gpt5sw-sl08-badge.trending {
+            background: #FF9500;
+            box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3);
+        }
+
+        .gpt5sw-sl08-badge.featured {
+            background: #FF3B30;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3);
+        }
+
+        .gpt5sw-sl08-content {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gpt5sw-sl08-category {
+            display: inline-block;
+            background: rgba(0, 122, 255, 0.1);
+            color: #007AFF;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .gpt5sw-sl08-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+        }
+
+        .gpt5sw-sl08-description {
+            font-size: 0.9rem;
+            color: #6E6E73;
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+            flex: 1;
+        }
+
+        .gpt5sw-sl08-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .gpt5sw-sl08-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #007AFF;
+        }
+
+        .gpt5sw-sl08-rating {
+            font-size: 0.9rem;
+            color: #FF9500;
+        }
+
+        .gpt5sw-sl08-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            text-transform: none;
+            letter-spacing: 0;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+        }
+
+        .gpt5sw-sl08-btn:hover {
+            background: #0056CC;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+        }
+
+        .gpt5sw-sl08-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+        }
+
+        /* Pagination */
+        .gpt5sw-sl08-pagination {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .gpt5sw-sl08-pagination .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            margin: 0 4px;
+            transition: all 0.3s ease-out;
+            border-radius: 50%;
+        }
+
+        .gpt5sw-sl08-pagination .swiper-pagination-bullet-active {
+            background: #007AFF;
+            transform: scale(1.3);
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Controls */
+        .gpt5sw-sl08-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding: 16px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .gpt5sw-sl08-counter {
+            background: rgba(0, 0, 0, 0.06);
+            color: #6E6E73;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .gpt5sw-sl08-autoplay {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+        }
+
+        .gpt5sw-sl08-autoplay:hover {
+            background: #0056CC;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-sl08-container {
+                padding: 30px 20px;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .gpt5sw-sl08-card {
+                height: 420px;
+            }
+
+            .gpt5sw-sl08-image {
+                height: 200px;
+            }
+
+            .gpt5sw-sl08-content {
+                padding: 20px;
+            }
+
+            .gpt5sw-sl08-title {
+                font-size: 1.3rem;
+            }
+
+            .gpt5sw-sl08-description {
+                font-size: 0.85rem;
+            }
+
+            .gpt5sw-sl08-controls {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl08-container {
+                padding: 20px 15px;
+            }
+
+            .gpt5sw-sl08-card {
+                height: 380px;
+            }
+
+            .gpt5sw-sl08-image {
+                height: 180px;
+            }
+
+            .gpt5sw-sl08-content {
+                padding: 16px;
+            }
+
+            .gpt5sw-sl08-title {
+                font-size: 1.2rem;
+            }
+
+            .gpt5sw-sl08-description {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            .gpt5sw-sl08-btn {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .gpt5sw-sl08-container {
+                max-width: 450px;
+            }
+
+            .gpt5sw-sl08-card {
+                height: 500px;
+            }
+
+            .gpt5sw-sl08-image {
+                height: 260px;
+            }
+        }
+
+        /* ===== Swiper Slider 09 Styles (Liquid Flow Slider) ===== */
+        .gpt5sw-sl09-container {
+            background: linear-gradient(135deg, #667eea 0%, #5a6fd8 100%);
+            border-radius: 30px;
+            padding: 60px 40px 60px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Liquid Background Effects */
+        .gpt5sw-sl09-liquid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Ripple Effects */
+        .gpt5sw-sl09-ripple {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: gpt5sw-sl09-ripple-animation 4s infinite ease-out;
+        }
+
+        .gpt5sw-sl09-ripple-1 {
+            top: 20%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+        }
+
+        .gpt5sw-sl09-ripple-2 {
+            top: 60%;
+            right: 15%;
+            width: 200px;
+            height: 200px;
+            animation-delay: 1.5s;
+        }
+
+        .gpt5sw-sl09-ripple-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 3s;
+        }
+
+        @keyframes gpt5sw-sl09-ripple-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Droplet Effects */
+        .gpt5sw-sl09-droplet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            animation: gpt5sw-sl09-droplet-animation 3s infinite ease-in-out;
+        }
+
+        .gpt5sw-sl09-droplet-1 {
+            top: -20px;
+            left: 30%;
+            animation-delay: 0s;
+        }
+
+        .gpt5sw-sl09-droplet-2 {
+            top: -20px;
+            right: 25%;
+            animation-delay: 1s;
+        }
+
+        .gpt5sw-sl09-droplet-3 {
+            top: -20px;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        @keyframes gpt5sw-sl09-droplet-animation {
+            0% {
+                transform: rotate(-45deg) translateY(-20px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(-45deg) translateY(calc(100vh + 50px));
+                opacity: 0;
+            }
+        }
+
+        /* Main Swiper */
+        .gpt5sw-sl09-main {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 40px;
+        }
+
+        .gpt5sw-sl09-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .gpt5sw-sl09-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Liquid Border Effect */
+        .gpt5sw-sl09-liquid-border {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #5a6fd8, #4e63d2, #667eea);
+            background-size: 400% 400%;
+            border-radius: 25px;
+            z-index: -1;
+            animation: gpt5sw-sl09-liquid-border-animation 4s ease infinite;
+        }
+
+        @keyframes gpt5sw-sl09-liquid-border-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gpt5sw-sl09-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl09-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gpt5sw-sl09-card:hover .gpt5sw-sl09-image img {
+            transform: scale(1.1);
+        }
+
+        /* Wave Overlay Effect */
+        .gpt5sw-sl09-wave-overlay {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
+            clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+            animation: gpt5sw-sl09-wave-animation 3s ease-in-out infinite;
+        }
+
+        @keyframes gpt5sw-sl09-wave-animation {
+            0%, 100% {
+                clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+            }
+            50% {
+                clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 100%);
+            }
+        }
+
+        .gpt5sw-sl09-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .gpt5sw-sl09-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .gpt5sw-sl09-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+        }
+
+        .gpt5sw-sl09-description {
+            font-size: 0.95rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .gpt5sw-sl09-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .gpt5sw-sl09-impact,
+        .gpt5sw-sl09-participants {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Liquid Button */
+        .gpt5sw-sl09-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .gpt5sw-sl09-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .gpt5sw-sl09-btn-ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .gpt5sw-sl09-btn:active .gpt5sw-sl09-btn-ripple {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Navigation */
+        .gpt5sw-sl09-navigation {
+            position: absolute;
+            top: 50%;
+            width: calc(100% + 140px);
+            left: -70px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .gpt5sw-sl09-nav-prev,
+        .gpt5sw-sl09-nav-next {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: #667eea;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl09-nav-prev::after {
+            content: '‹';
+        }
+
+        .gpt5sw-sl09-nav-next::after {
+            content: '›';
+        }
+
+        .gpt5sw-sl09-nav-prev:hover,
+        .gpt5sw-sl09-nav-next:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .gpt5sw-sl09-nav-ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .gpt5sw-sl09-nav-prev:active .gpt5sw-sl09-nav-ripple,
+        .gpt5sw-sl09-nav-next:active .gpt5sw-sl09-nav-ripple {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Pagination */
+        .gpt5sw-sl09-pagination {
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gpt5sw-sl09-pagination .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+            margin: 0 6px;
+            transition: all 0.4s ease;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl09-pagination .swiper-pagination-bullet-active {
+            background: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .gpt5sw-sl09-pagination .swiper-pagination-bullet::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .gpt5sw-sl09-pagination .swiper-pagination-bullet-active::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Controls */
+        .gpt5sw-sl09-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gpt5sw-sl09-counter {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gpt5sw-sl09-autoplay {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl09-autoplay:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-sl09-container {
+                padding: 40px 20px;
+            }
+
+            .gpt5sw-sl09-navigation {
+                width: calc(100% + 100px);
+                left: -50px;
+            }
+
+            .gpt5sw-sl09-image {
+                height: 220px;
+            }
+
+            .gpt5sw-sl09-content {
+                padding: 25px;
+            }
+
+            .gpt5sw-sl09-title {
+                font-size: 1.4rem;
+            }
+
+            .gpt5sw-sl09-description {
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-sl09-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .gpt5sw-sl09-controls {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .gpt5sw-sl09-nav-prev,
+            .gpt5sw-sl09-nav-next {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl09-container {
+                padding: 30px 15px;
+            }
+
+            .gpt5sw-sl09-navigation {
+                width: calc(100% + 80px);
+                left: -40px;
+            }
+
+            .gpt5sw-sl09-image {
+                height: 200px;
+            }
+
+            .gpt5sw-sl09-content {
+                padding: 20px;
+            }
+
+            .gpt5sw-sl09-title {
+                font-size: 1.3rem;
+            }
+
+            .gpt5sw-sl09-description {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .gpt5sw-sl09-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-sl09-nav-prev,
+            .gpt5sw-sl09-nav-next {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+
+        /* ===== Swiper Slider 10 Styles (Split Dual Slider) ===== */
+        .gpt5sw-sl10-container {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 40px 100px 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl10-split-layout {
+            display: flex;
+            height: 600px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        /* Left Side: Image Area */
+        .gpt5sw-sl10-left {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl10-image-swiper {
+            height: 100%;
+        }
+
+        .gpt5sw-sl10-image {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-sl10-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gpt5sw-sl10-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Split Line */
+        .gpt5sw-sl10-split-line {
+            width: 2px;
+            background: linear-gradient(to bottom, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%);
+            position: relative;
+            flex-shrink: 0;
+            transition: width 0.3s ease;
+        }
+
+        .gpt5sw-sl10-split-line:hover {
+            width: 4px;
+            background: linear-gradient(to bottom, transparent 0%, #2c3e50 20%, #2c3e50 80%, transparent 100%);
+        }
+
+        .gpt5sw-sl10-split-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, #2c3e50, transparent);
+            border-radius: 0 0 50% 50%;
+            animation: gpt5sw-sl10-flow-animation 3s ease-in-out infinite;
+        }
+
+        @keyframes gpt5sw-sl10-flow-animation {
+            0% {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(600px);
+                opacity: 0;
+            }
+        }
+
+        /* Right Side: Content Area */
+        .gpt5sw-sl10-right {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        .gpt5sw-sl10-content-swiper {
+            height: 100%;
+        }
+
+        .gpt5sw-sl10-content {
+            height: 100%;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .gpt5sw-sl10-category {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .gpt5sw-sl10-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 20px 0;
+            line-height: 1.3;
+        }
+
+        .gpt5sw-sl10-description {
+            font-size: 1rem;
+            color: #5a6c7d;
+            line-height: 1.7;
+            margin: 0 0 30px 0;
+            flex: 1;
+        }
+
+        .gpt5sw-sl10-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .gpt5sw-sl10-tag {
+            background: rgba(44, 62, 80, 0.1);
+            color: #2c3e50;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .gpt5sw-sl10-btn {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .gpt5sw-sl10-btn:hover {
+            background: #34495e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+        }
+
+        /* Main Navigation */
+        .gpt5sw-sl10-main-nav {
+            position: absolute;
+            top: 50%;
+            width: calc(100% + 160px);
+            left: -80px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 25;
+            transform: translateY(-50%);
+        }
+
+        .gpt5sw-sl10-main-prev,
+        .gpt5sw-sl10-main-next {
+            width: 60px;
+            height: 60px;
+            background: rgba(44, 62, 80, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+        }
+
+        .gpt5sw-sl10-main-prev::after {
+            content: '‹';
+        }
+
+        .gpt5sw-sl10-main-next::after {
+            content: '›';
+        }
+
+        .gpt5sw-sl10-main-prev:hover,
+        .gpt5sw-sl10-main-next:hover {
+            background: #2c3e50;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+        }
+
+        /* Main Pagination */
+        .gpt5sw-sl10-main-pagination {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            text-align: center;
+            width: 100%;
+        }
+
+        .gpt5sw-sl10-main-pagination .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(44, 62, 80, 0.3);
+            opacity: 1;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .gpt5sw-sl10-main-pagination .swiper-pagination-bullet-active {
+            background: #2c3e50;
+            transform: scale(1.3);
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.3);
+        }
+
+        /* Override Swiper default pagination styles for perfect centering */
+        .gpt5sw-sl10-container .swiper-pagination-horizontal,
+        .gpt5sw-sl10-container .swiper-pagination-bullets.swiper-pagination-horizontal {
+            /* bottom: -50px !important; */
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: auto !important;
+            text-align: center !important;
+        }
+
+        /* Controls */
+        .gpt5sw-sl10-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .gpt5sw-sl10-counters {
+            display: flex;
+            gap: 30px;
+        }
+
+        .gpt5sw-sl10-left-counter,
+        .gpt5sw-sl10-right-counter {
+            background: rgba(44, 62, 80, 0.05);
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .gpt5sw-sl10-sync-controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        .gpt5sw-sl10-sync-btn {
+            background: #34495e;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gpt5sw-sl10-sync-btn:hover {
+            background: #2c3e50;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+        }
+
+        .gpt5sw-sl10-sync-btn.active {
+            background: #27ae60;
+        }
+
+        .gpt5sw-sl10-autoplay {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gpt5sw-sl10-autoplay:hover {
+            background: #34495e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-sl10-container {
+                padding: 30px 20px 80px 20px;
+            }
+
+            .gpt5sw-sl10-split-layout {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .gpt5sw-sl10-left {
+                height: 300px;
+            }
+
+            .gpt5sw-sl10-split-line {
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%);
+            }
+
+            .gpt5sw-sl10-split-line:hover {
+                height: 4px;
+            }
+
+            .gpt5sw-sl10-split-animation {
+                width: 40px;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: linear-gradient(to right, #2c3e50, transparent);
+                border-radius: 0 50% 50% 0;
+                animation: gpt5sw-sl10-flow-horizontal 3s ease-in-out infinite;
+            }
+
+            @keyframes gpt5sw-sl10-flow-horizontal {
+                0% {
+                    transform: translateX(-40px);
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateX(calc(100vw + 40px));
+                    opacity: 0;
+                }
+            }
+
+            .gpt5sw-sl10-right {
+                height: 400px;
+            }
+
+            .gpt5sw-sl10-content {
+                padding: 40px 30px;
+            }
+
+            .gpt5sw-sl10-title {
+                font-size: 1.6rem;
+            }
+
+            .gpt5sw-sl10-description {
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-sl10-controls {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .gpt5sw-sl10-counters {
+                justify-content: center;
+            }
+
+            .gpt5sw-sl10-main-nav {
+                width: calc(100% + 120px);
+                left: -60px;
+            }
+
+            .gpt5sw-sl10-main-prev,
+            .gpt5sw-sl10-main-next {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-sl10-container {
+                padding: 20px 15px 70px 15px;
+            }
+
+            .gpt5sw-sl10-left {
+                height: 250px;
+            }
+
+            .gpt5sw-sl10-right {
+                height: 350px;
+            }
+
+            .gpt5sw-sl10-content {
+                padding: 30px 20px;
+            }
+
+            .gpt5sw-sl10-title {
+                font-size: 1.4rem;
+            }
+
+            .gpt5sw-sl10-description {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .gpt5sw-sl10-counters {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gpt5sw-sl10-sync-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gpt5sw-sl10-main-nav {
+                width: calc(100% + 100px);
+                left: -50px;
+            }
+
+            .gpt5sw-sl10-main-prev,
+            .gpt5sw-sl10-main-next {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+
+        /* ==================================================
+           Slider 06: Modern Card Grid Slider Styles
+           ================================================== */
+
+        .gpt5sw-slider-06 {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 600px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gpt5sw-slider-06.initialized {
+            opacity: 1;
+        }
+
+        .gpt5sw-06-split-container {
+            display: flex;
+            gap: 30px;
+            height: 500px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Left Panel */
+        .gpt5sw-06-left-panel {
+            flex: 1.2;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            min-height: 400px;
+        }
+
+        .gpt5sw-06-main-image-swiper {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .gpt5sw-06-main-image-swiper .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-06-main-image-swiper .swiper-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .gpt5sw-06-slide-visual {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .slide-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .gpt5sw-06-slide-visual h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .gpt5sw-06-slide-visual p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        /* Vertical Progress */
+        .gpt5sw-06-vertical-progress {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gpt5sw-06-progress-track {
+            width: 4px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .gpt5sw-06-progress-fill {
+            width: 100%;
+            height: 16.67%; /* 初期値: 1/6 = 16.67% */
+            background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+            border-radius: 2px;
+            transition: height 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .progress-labels {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .current-slide {
+            font-size: 1.5rem;
+        }
+
+        .total-slides {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Right Panel */
+        .gpt5sw-06-right-panel {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Tab Navigation */
+        .gpt5sw-06-tab-navigation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .gpt5sw-06-tab-item {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gpt5sw-06-tab-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .gpt5sw-06-tab-item:hover::before {
+            left: 100%;
+        }
+
+        .gpt5sw-06-tab-item:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .gpt5sw-06-tab-item.active {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+            transform: scale(1.02);
+        }
+
+        .tab-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .tab-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Content Swiper */
+        .gpt5sw-06-content-swiper {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            height: 320px;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .gpt5sw-06-content-swiper .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .gpt5sw-06-content-card {
+            text-align: center;
+        }
+
+        .gpt5sw-06-content-card .gpt5sw-06-card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .gpt5sw-06-content-card .gpt5sw-06-card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+        }
+
+        .gpt5sw-06-content-card .gpt5sw-06-card-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #5a6c7d;
+            margin: 0 0 25px 0;
+        }
+
+        .gpt5sw-06-content-card .gpt5sw-06-card-features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .gpt5sw-06-feature-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .feature-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feature-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Controls */
+        .gpt5sw-06-slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .gpt5sw-06-control-btn {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+
+        .gpt5sw-06-control-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .autoplay-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .autoplay-control:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .gpt5sw-06-autoplay-btn {
+            background: transparent;
+            border: none;
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .autoplay-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gpt5sw-slider-06 {
+                padding: 40px 20px;
+            }
+
+            .gpt5sw-06-split-container {
+                flex-direction: column;
+                height: auto;
+                gap: 25px;
+                max-width: 100%;
+            }
+
+            .gpt5sw-06-left-panel {
+                height: 300px;
+            }
+
+            .slide-icon {
+                font-size: 3rem;
+            }
+
+            .gpt5sw-06-slide-visual h3 {
+                font-size: 2rem;
+            }
+
+            .gpt5sw-06-slide-visual p {
+                font-size: 1rem;
+            }
+
+            .gpt5sw-06-progress-track {
+                height: 120px;
+            }
+
+            .gpt5sw-06-tab-navigation {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .gpt5sw-06-tab-item {
+                padding: 10px 12px;
+            }
+
+            .tab-number {
+                font-size: 0.8rem;
+                padding: 3px 6px;
+                min-width: 24px;
+            }
+
+            .tab-label {
+                font-size: 0.8rem;
+            }
+
+            .gpt5sw-06-content-swiper {
+                padding: 20px;
+                height: 280px;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-icon {
+                font-size: 2.5rem;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-title {
+                font-size: 1.5rem;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-description {
+                font-size: 1rem;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-features {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .gpt5sw-06-slider-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gpt5sw-slider-06 {
+                padding: 30px 15px;
+            }
+
+            .gpt5sw-06-left-panel {
+                height: 250px;
+            }
+
+            .slide-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .gpt5sw-06-slide-visual h3 {
+                font-size: 1.5rem;
+            }
+
+            .gpt5sw-06-slide-visual p {
+                font-size: 0.9rem;
+            }
+
+            .gpt5sw-06-tab-navigation {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .gpt5sw-06-content-swiper {
+                padding: 15px;
+                height: 250px;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-icon {
+                font-size: 2rem;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-title {
+                font-size: 1.3rem;
+            }
+
+            .gpt5sw-06-content-card .gpt5sw-06-card-description {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 
@@ -1970,6 +4487,695 @@ if (!defined('ABSPATH')) { exit; }
                     </div>
                 </div>
             </section>
+        </section>
+
+        <!-- Swiper Slider 06 -->
+        <section class="gpt5sw-slider-section">
+            <h2 class="gpt5sw-slider-title">06. プレミアムプロダクトスライダー</h2>
+            
+            <!-- Swiper Slider 06: Premium Product Showcase -->
+            <div class="gpt5sw-sl06-container">
+                <!-- Main Swiper -->
+                <div class="swiper gpt5sw-sl06-main">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide 1: Wireless Headphones -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl06-slide-content">
+                                <div class="gpt5sw-sl06-product-image">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=400&fit=crop" alt="Wireless Headphones">
+                                    <div class="gpt5sw-sl06-badge">New</div>
+                                </div>
+                                <div class="gpt5sw-sl06-product-info">
+                                    <div class="gpt5sw-sl06-category">Electronics</div>
+                                    <h3 class="gpt5sw-sl06-title">Premium Wireless Headphones</h3>
+                                    <p class="gpt5sw-sl06-description">高品質なワイヤレスヘッドフォン。ノイズキャンセリング機能搭載で、クリアな音質を実現。</p>
+                                    <div class="gpt5sw-sl06-specs">
+                                        <span class="gpt5sw-sl06-spec">• 30時間連続再生</span>
+                                        <span class="gpt5sw-sl06-spec">• ANCテクノロジー</span>
+                                        <span class="gpt5sw-sl06-spec">• 急速充電対応</span>
+                                    </div>
+                                    <div class="gpt5sw-sl06-price-row">
+                                        <div class="gpt5sw-sl06-price">¥29,800</div>
+                                        <button class="gpt5sw-sl06-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Smartwatch -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl06-slide-content">
+                                <div class="gpt5sw-sl06-product-image">
+                                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&h=400&fit=crop" alt="Smartwatch">
+                                    <div class="gpt5sw-sl06-badge premium">Premium</div>
+                                </div>
+                                <div class="gpt5sw-sl06-product-info">
+                                    <div class="gpt5sw-sl06-category">Wearables</div>
+                                    <h3 class="gpt5sw-sl06-title">Advanced Smartwatch Pro</h3>
+                                    <p class="gpt5sw-sl06-description">多機能スマートウォッチ。健康管理から通知機能まで、日常をサポートする最新技術。</p>
+                                    <div class="gpt5sw-sl06-specs">
+                                        <span class="gpt5sw-sl06-spec">• GPS内蔵</span>
+                                        <span class="gpt5sw-sl06-spec">• 心拍数モニター</span>
+                                        <span class="gpt5sw-sl06-spec">• 防水機能</span>
+                                    </div>
+                                    <div class="gpt5sw-sl06-price-row">
+                                        <div class="gpt5sw-sl06-price">¥45,000</div>
+                                        <button class="gpt5sw-sl06-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Laptop -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl06-slide-content">
+                                <div class="gpt5sw-sl06-product-image">
+                                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=400&fit=crop" alt="Laptop">
+                                    <div class="gpt5sw-sl06-badge sale">Sale</div>
+                                </div>
+                                <div class="gpt5sw-sl06-product-info">
+                                    <div class="gpt5sw-sl06-category">Computing</div>
+                                    <h3 class="gpt5sw-sl06-title">Ultra-Thin Laptop</h3>
+                                    <p class="gpt5sw-sl06-description">軽量でパワフルなウルトラブック。仕事からクリエイティブワークまで幅広く対応。</p>
+                                    <div class="gpt5sw-sl06-specs">
+                                        <span class="gpt5sw-sl06-spec">• 16GB RAM</span>
+                                        <span class="gpt5sw-sl06-spec">• 512GB SSD</span>
+                                        <span class="gpt5sw-sl06-spec">• 10時間バッテリー</span>
+                                    </div>
+                                    <div class="gpt5sw-sl06-price-row">
+                                        <div class="gpt5sw-sl06-price">¥159,800</div>
+                                        <button class="gpt5sw-sl06-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Camera -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl06-slide-content">
+                                <div class="gpt5sw-sl06-product-image">
+                                    <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&h=400&fit=crop" alt="Camera">
+                                    <div class="gpt5sw-sl06-badge">Featured</div>
+                                </div>
+                                <div class="gpt5sw-sl06-product-info">
+                                    <div class="gpt5sw-sl06-category">Photography</div>
+                                    <h3 class="gpt5sw-sl06-title">Professional DSLR Camera</h3>
+                                    <p class="gpt5sw-sl06-description">プロ仕様のデジタル一眼レフカメラ。高解像度センサーで美しい写真を撮影。</p>
+                                    <div class="gpt5sw-sl06-specs">
+                                        <span class="gpt5sw-sl06-spec">• 24.2MP センサー</span>
+                                        <span class="gpt5sw-sl06-spec">• 4K動画撮影</span>
+                                        <span class="gpt5sw-sl06-spec">• Wi-Fi内蔵</span>
+                                    </div>
+                                    <div class="gpt5sw-sl06-price-row">
+                                        <div class="gpt5sw-sl06-price">¥89,800</div>
+                                        <button class="gpt5sw-sl06-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="gpt5sw-sl06-navigation">
+                        <div class="swiper-button-prev gpt5sw-sl06-prev"></div>
+                        <div class="swiper-button-next gpt5sw-sl06-next"></div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination gpt5sw-sl06-pagination"></div>
+                </div>
+                
+                <!-- Thumbnails -->
+                <div class="gpt5sw-sl06-thumbs">
+                    <div class="swiper gpt5sw-sl06-thumbs-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide gpt5sw-sl06-thumb">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=80&fit=crop" alt="Headphones">
+                                <span>Headphones</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl06-thumb">
+                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100&h=80&fit=crop" alt="Smartwatch">
+                                <span>Smartwatch</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl06-thumb">
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=100&h=80&fit=crop" alt="Laptop">
+                                <span>Laptop</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl06-thumb">
+                                <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=100&h=80&fit=crop" alt="Camera">
+                                <span>Camera</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                <div class="gpt5sw-sl06-controls">
+                    <div class="gpt5sw-sl06-counter">
+                        <span id="gpt5sw-sl06-current">1</span> / <span id="gpt5sw-sl06-total">4</span>
+                            </div>
+
+                    <button class="gpt5sw-sl06-autoplay" id="gpt5sw-sl06-autoplay">
+                        <span id="gpt5sw-sl06-auto-icon">⏸</span>
+                        <span id="gpt5sw-sl06-auto-text">自動再生停止</span>
+                            </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Swiper Slider 07 -->
+        <section class="gpt5sw-slider-section">
+            <h2 class="gpt5sw-slider-title">07. ミニマル・カード・スライダー</h2>
+            
+            <!-- Swiper Slider 07: Minimal Card Slider -->
+            <div class="gpt5sw-sl07-container">
+                <!-- Main Swiper -->
+                <div class="swiper gpt5sw-sl07-main">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide 1: Web Design Service -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl07-card">
+                                <div class="gpt5sw-sl07-image">
+                                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=400&fit=crop" alt="Web Design Service">
+                                </div>
+                                <div class="gpt5sw-sl07-info">
+                                    <div class="gpt5sw-sl07-category">Web Design</div>
+                                    <h3 class="gpt5sw-sl07-title">モダンWebデザイン</h3>
+                                    <p class="gpt5sw-sl07-description">ユーザー体験を重視したモダンで美しいWebサイトデザインを提供。レスポンシブ対応で全デバイスに最適化されたデザインをお届けします。</p>
+                                    <button class="gpt5sw-sl07-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Digital Marketing -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl07-card">
+                                <div class="gpt5sw-sl07-image">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop" alt="Digital Marketing">
+                                </div>
+                                <div class="gpt5sw-sl07-info">
+                                    <div class="gpt5sw-sl07-category">Marketing</div>
+                                    <h3 class="gpt5sw-sl07-title">デジタルマーケティング</h3>
+                                    <p class="gpt5sw-sl07-description">データドリブンなマーケティング戦略で、ROIを最大化。SEO、SNS、コンテンツマーケティングを統合したアプローチで成果を実現します。</p>
+                                    <button class="gpt5sw-sl07-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: App Development -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl07-card">
+                                <div class="gpt5sw-sl07-image">
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=400&fit=crop" alt="App Development">
+                                </div>
+                                <div class="gpt5sw-sl07-info">
+                                    <div class="gpt5sw-sl07-category">Development</div>
+                                    <h3 class="gpt5sw-sl07-title">モバイルアプリ開発</h3>
+                                    <p class="gpt5sw-sl07-description">iOS・Android対応のネイティブアプリ開発。ユーザビリティを重視した直感的なインターフェースで、ビジネス価値を最大化するアプリを制作します。</p>
+                                    <button class="gpt5sw-sl07-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Business Consulting -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl07-card">
+                                <div class="gpt5sw-sl07-image">
+                                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=400&fit=crop" alt="Business Consulting">
+                                </div>
+                                <div class="gpt5sw-sl07-info">
+                                    <div class="gpt5sw-sl07-category">Consulting</div>
+                                    <h3 class="gpt5sw-sl07-title">ビジネス戦略コンサルティング</h3>
+                                    <p class="gpt5sw-sl07-description">企業の成長戦略立案から実行支援まで。豊富な経験と実績に基づいた戦略的アドバイスで、持続可能なビジネス成長をサポートします。</p>
+                                    <button class="gpt5sw-sl07-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="gpt5sw-sl07-navigation">
+                        <div class="swiper-button-prev gpt5sw-sl07-nav-prev"></div>
+                        <div class="swiper-button-next gpt5sw-sl07-nav-next"></div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination gpt5sw-sl07-pagination"></div>
+                </div>
+                
+                <!-- Thumbnails -->
+                <div class="gpt5sw-sl07-thumbs">
+                    <div class="swiper gpt5sw-sl07-thumbs-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide gpt5sw-sl07-thumb">
+                                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=100&h=80&fit=crop" alt="Web Design">
+                                <span>Web Design</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl07-thumb">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=80&fit=crop" alt="Marketing">
+                                <span>Marketing</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl07-thumb">
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=100&h=80&fit=crop" alt="Development">
+                                <span>Development</span>
+                            </div>
+                            <div class="swiper-slide gpt5sw-sl07-thumb">
+                                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=100&h=80&fit=crop" alt="Consulting">
+                                <span>Consulting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="gpt5sw-sl07-controls">
+                    <div class="gpt5sw-sl07-counter">
+                        <span id="gpt5sw-sl07-current">1</span> / <span id="gpt5sw-sl07-total">4</span>
+                    </div>
+                    
+                    <button class="gpt5sw-sl07-autoplay" id="gpt5sw-sl07-autoplay">
+                        <span id="gpt5sw-sl07-auto-icon">⏸</span>
+                        <span id="gpt5sw-sl07-auto-text">自動再生停止</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Swiper Slider 08 -->
+        <section class="gpt5sw-slider-section">
+            <h2 class="gpt5sw-slider-title">08. モバイルネイティブ・カードスライダー</h2>
+            
+            <!-- Swiper Slider 08: Mobile Native Card Slider -->
+            <div class="gpt5sw-sl08-container">
+                <!-- Main Swiper -->
+                <div class="swiper gpt5sw-sl08-main">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide 1: Travel & Tourism -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl08-card">
+                                <div class="gpt5sw-sl08-image">
+                                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=250&fit=crop" alt="Travel Experience">
+                                    <div class="gpt5sw-sl08-badge">Popular</div>
+                                </div>
+                                <div class="gpt5sw-sl08-content">
+                                    <div class="gpt5sw-sl08-category">Travel</div>
+                                    <h3 class="gpt5sw-sl08-title">世界を旅する体験</h3>
+                                    <p class="gpt5sw-sl08-description">忘れられない旅の思い出を作りませんか？美しい景色と文化に触れる特別な体験をご提供します。</p>
+                                    <div class="gpt5sw-sl08-meta">
+                                        <span class="gpt5sw-sl08-price">¥89,000〜</span>
+                                        <span class="gpt5sw-sl08-rating">★★★★★</span>
+                                    </div>
+                                    <button class="gpt5sw-sl08-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Technology & Innovation -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl08-card">
+                                <div class="gpt5sw-sl08-image">
+                                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=250&fit=crop" alt="Technology Innovation">
+                                    <div class="gpt5sw-sl08-badge new">New</div>
+                                </div>
+                                <div class="gpt5sw-sl08-content">
+                                    <div class="gpt5sw-sl08-category">Technology</div>
+                                    <h3 class="gpt5sw-sl08-title">次世代テクノロジー</h3>
+                                    <p class="gpt5sw-sl08-description">最新のAI技術とイノベーションで、ビジネスの可能性を広げる革新的なソリューションを提供します。</p>
+                                    <div class="gpt5sw-sl08-meta">
+                                        <span class="gpt5sw-sl08-price">お問い合わせ</span>
+                                        <span class="gpt5sw-sl08-rating">★★★★☆</span>
+                                    </div>
+                                    <button class="gpt5sw-sl08-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Health & Wellness -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl08-card">
+                                <div class="gpt5sw-sl08-image">
+                                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=250&fit=crop" alt="Health & Wellness">
+                                    <div class="gpt5sw-sl08-badge trending">Trending</div>
+                                </div>
+                                <div class="gpt5sw-sl08-content">
+                                    <div class="gpt5sw-sl08-category">Wellness</div>
+                                    <h3 class="gpt5sw-sl08-title">健康とウェルネス</h3>
+                                    <p class="gpt5sw-sl08-description">心と体の健康をサポートする包括的なウェルネスプログラム。専門家による個別指導で理想の自分へ。</p>
+                                    <div class="gpt5sw-sl08-meta">
+                                        <span class="gpt5sw-sl08-price">¥12,000/月</span>
+                                        <span class="gpt5sw-sl08-rating">★★★★★</span>
+                                    </div>
+                                    <button class="gpt5sw-sl08-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Education & Learning -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl08-card">
+                                <div class="gpt5sw-sl08-image">
+                                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=250&fit=crop" alt="Education & Learning">
+                                    <div class="gpt5sw-sl08-badge featured">Featured</div>
+                                </div>
+                                <div class="gpt5sw-sl08-content">
+                                    <div class="gpt5sw-sl08-category">Education</div>
+                                    <h3 class="gpt5sw-sl08-title">学習とスキルアップ</h3>
+                                    <p class="gpt5sw-sl08-description">現代に必要なスキルを効率的に学べるオンライン学習プラットフォーム。あなたの成長をサポートします。</p>
+                                    <div class="gpt5sw-sl08-meta">
+                                        <span class="gpt5sw-sl08-price">¥2,980/月</span>
+                                        <span class="gpt5sw-sl08-rating">★★★★☆</span>
+                                    </div>
+                                    <button class="gpt5sw-sl08-btn">詳細を見る</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination gpt5sw-sl08-pagination"></div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="gpt5sw-sl08-controls">
+                    <div class="gpt5sw-sl08-counter">
+                        <span id="gpt5sw-sl08-current">1</span> / <span id="gpt5sw-sl08-total">4</span>
+                    </div>
+                    
+                    <button class="gpt5sw-sl08-autoplay" id="gpt5sw-sl08-autoplay">
+                        <span id="gpt5sw-sl08-auto-icon">⏸</span>
+                        <span id="gpt5sw-sl08-auto-text">自動再生停止</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Swiper Slider 09 -->
+        <section class="gpt5sw-slider-section">
+            <h2 class="gpt5sw-slider-title">09. リキッド・フロー・スライダー</h2>
+            
+            <!-- Swiper Slider 09: Liquid Flow Slider -->
+            <div class="gpt5sw-sl09-container">
+                <!-- Liquid Background Effects -->
+                <div class="gpt5sw-sl09-liquid-bg">
+                    <div class="gpt5sw-sl09-ripple gpt5sw-sl09-ripple-1"></div>
+                    <div class="gpt5sw-sl09-ripple gpt5sw-sl09-ripple-2"></div>
+                    <div class="gpt5sw-sl09-ripple gpt5sw-sl09-ripple-3"></div>
+                    <div class="gpt5sw-sl09-droplet gpt5sw-sl09-droplet-1"></div>
+                    <div class="gpt5sw-sl09-droplet gpt5sw-sl09-droplet-2"></div>
+                    <div class="gpt5sw-sl09-droplet gpt5sw-sl09-droplet-3"></div>
+                </div>
+                
+                <!-- Main Swiper -->
+                <div class="swiper gpt5sw-sl09-main">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Slide 1: Ocean Conservation -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl09-card">
+                                <div class="gpt5sw-sl09-liquid-border"></div>
+                                <div class="gpt5sw-sl09-image">
+                                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop" alt="Ocean Conservation">
+                                    <div class="gpt5sw-sl09-wave-overlay"></div>
+                                </div>
+                                <div class="gpt5sw-sl09-content">
+                                    <div class="gpt5sw-sl09-category">Ocean</div>
+                                    <h3 class="gpt5sw-sl09-title">海洋保護プロジェクト</h3>
+                                    <p class="gpt5sw-sl09-description">美しい海を守るための革新的な取り組み。持続可能な未来のために、私たちと一緒に海洋環境を保護しませんか？</p>
+                                    <div class="gpt5sw-sl09-meta">
+                                        <span class="gpt5sw-sl09-impact">影響度: 高</span>
+                                        <span class="gpt5sw-sl09-participants">参加者: 12,500人</span>
+                                    </div>
+                                    <button class="gpt5sw-sl09-btn">
+                                        <span>参加する</span>
+                                        <div class="gpt5sw-sl09-btn-ripple"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Forest Restoration -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl09-card">
+                                <div class="gpt5sw-sl09-liquid-border"></div>
+                                <div class="gpt5sw-sl09-image">
+                                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=300&fit=crop" alt="Forest Restoration">
+                                    <div class="gpt5sw-sl09-wave-overlay"></div>
+                                </div>
+                                <div class="gpt5sw-sl09-content">
+                                    <div class="gpt5sw-sl09-category">Forest</div>
+                                    <h3 class="gpt5sw-sl09-title">森林再生イニシアティブ</h3>
+                                    <p class="gpt5sw-sl09-description">失われた森を取り戻す大規模な植林プロジェクト。緑豊かな地球を次世代に残すための取り組みにご参加ください。</p>
+                                    <div class="gpt5sw-sl09-meta">
+                                        <span class="gpt5sw-sl09-impact">影響度: 最高</span>
+                                        <span class="gpt5sw-sl09-participants">参加者: 8,900人</span>
+                                    </div>
+                                    <button class="gpt5sw-sl09-btn">
+                                        <span>参加する</span>
+                                        <div class="gpt5sw-sl09-btn-ripple"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Clean Energy -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl09-card">
+                                <div class="gpt5sw-sl09-liquid-border"></div>
+                                <div class="gpt5sw-sl09-image">
+                                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=300&fit=crop" alt="Clean Energy">
+                                    <div class="gpt5sw-sl09-wave-overlay"></div>
+                                </div>
+                                <div class="gpt5sw-sl09-content">
+                                    <div class="gpt5sw-sl09-category">Energy</div>
+                                    <h3 class="gpt5sw-sl09-title">クリーンエネルギー革命</h3>
+                                    <p class="gpt5sw-sl09-description">再生可能エネルギーによる持続可能な社会の実現。太陽光、風力、水力を活用した次世代エネルギーシステム。</p>
+                                    <div class="gpt5sw-sl09-meta">
+                                        <span class="gpt5sw-sl09-impact">影響度: 高</span>
+                                        <span class="gpt5sw-sl09-participants">参加者: 15,200人</span>
+                                    </div>
+                                    <button class="gpt5sw-sl09-btn">
+                                        <span>参加する</span>
+                                        <div class="gpt5sw-sl09-btn-ripple"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Water Conservation -->
+                        <div class="swiper-slide">
+                            <div class="gpt5sw-sl09-card">
+                                <div class="gpt5sw-sl09-liquid-border"></div>
+                                <div class="gpt5sw-sl09-image">
+                                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=300&fit=crop" alt="Water Conservation">
+                                    <div class="gpt5sw-sl09-wave-overlay"></div>
+                                </div>
+                                <div class="gpt5sw-sl09-content">
+                                    <div class="gpt5sw-sl09-category">Water</div>
+                                    <h3 class="gpt5sw-sl09-title">水資源保全プログラム</h3>
+                                    <p class="gpt5sw-sl09-description">貴重な水資源を守り、きれいな水を世界中に届ける取り組み。技術革新と地域連携で水不足問題の解決を目指します。</p>
+                                    <div class="gpt5sw-sl09-meta">
+                                        <span class="gpt5sw-sl09-impact">影響度: 最高</span>
+                                        <span class="gpt5sw-sl09-participants">参加者: 20,100人</span>
+                                    </div>
+                                    <button class="gpt5sw-sl09-btn">
+                                        <span>参加する</span>
+                                        <div class="gpt5sw-sl09-btn-ripple"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="gpt5sw-sl09-navigation">
+                        <div class="swiper-button-prev gpt5sw-sl09-nav-prev">
+                            <div class="gpt5sw-sl09-nav-ripple"></div>
+                        </div>
+                        <div class="swiper-button-next gpt5sw-sl09-nav-next">
+                            <div class="gpt5sw-sl09-nav-ripple"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination gpt5sw-sl09-pagination"></div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="gpt5sw-sl09-controls">
+                    <div class="gpt5sw-sl09-counter">
+                        <span id="gpt5sw-sl09-current">1</span> / <span id="gpt5sw-sl09-total">4</span>
+                    </div>
+                    
+                    <button class="gpt5sw-sl09-autoplay" id="gpt5sw-sl09-autoplay">
+                        <span id="gpt5sw-sl09-auto-icon">⏸</span>
+                        <span id="gpt5sw-sl09-auto-text">自動再生停止</span>
+                        <div class="gpt5sw-sl09-btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Swiper Slider 10 -->
+        <section class="gpt5sw-slider-section">
+            <h2 class="gpt5sw-slider-title">10. スプリット・デュアル・スライダー</h2>
+            
+            <!-- Swiper Slider 10: Split Dual Slider -->
+            <div class="gpt5sw-sl10-container">
+                <!-- Split Layout -->
+                <div class="gpt5sw-sl10-split-layout">
+                    
+                    <!-- Left Side: Image Slider -->
+                    <div class="gpt5sw-sl10-left">
+                        <div class="swiper gpt5sw-sl10-image-swiper">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Image Slide 1: Nature -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-image">
+                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountain Landscape">
+                                    </div>
+                                </div>
+                                
+                                <!-- Image Slide 2: City -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-image">
+                                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop" alt="City Skyline">
+                                    </div>
+                                </div>
+                                
+                                <!-- Image Slide 3: Technology -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-image">
+                                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop" alt="Technology">
+                                    </div>
+                                </div>
+                                
+                                <!-- Image Slide 4: Lifestyle -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-image">
+                                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop" alt="Lifestyle">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    
+                    <!-- Split Line -->
+                    <div class="gpt5sw-sl10-split-line">
+                        <div class="gpt5sw-sl10-split-animation"></div>
+                    </div>
+                    
+                    <!-- Right Side: Content Slider -->
+                    <div class="gpt5sw-sl10-right">
+                        <div class="swiper gpt5sw-sl10-content-swiper">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Content Slide 1: Business -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-content">
+                                        <div class="gpt5sw-sl10-category">Business</div>
+                                        <h3 class="gpt5sw-sl10-title">ビジネス戦略の革新</h3>
+                                        <p class="gpt5sw-sl10-description">現代のビジネス環境において、革新的な戦略とデジタル変革が成功の鍵となります。データ分析と顧客インサイトを活用し、競合他社との差別化を図ります。</p>
+                                        <div class="gpt5sw-sl10-meta">
+                                            <span class="gpt5sw-sl10-tag">戦略</span>
+                                            <span class="gpt5sw-sl10-tag">革新</span>
+                                            <span class="gpt5sw-sl10-tag">成長</span>
+                                        </div>
+                                        <button class="gpt5sw-sl10-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Slide 2: Education -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-content">
+                                        <div class="gpt5sw-sl10-category">Education</div>
+                                        <h3 class="gpt5sw-sl10-title">次世代の学習体験</h3>
+                                        <p class="gpt5sw-sl10-description">テクノロジーを活用した個別最適化学習により、一人ひとりの可能性を最大限に引き出します。AIとVRを組み合わせた没入型の教育プラットフォームを提供。</p>
+                                        <div class="gpt5sw-sl10-meta">
+                                            <span class="gpt5sw-sl10-tag">学習</span>
+                                            <span class="gpt5sw-sl10-tag">AI</span>
+                                            <span class="gpt5sw-sl10-tag">個別化</span>
+                                        </div>
+                                        <button class="gpt5sw-sl10-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Slide 3: Health -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-content">
+                                        <div class="gpt5sw-sl10-category">Health</div>
+                                        <h3 class="gpt5sw-sl10-title">ウェルネス・ライフスタイル</h3>
+                                        <p class="gpt5sw-sl10-description">心と体の健康を総合的にサポートする包括的なウェルネスプログラム。栄養管理、運動指導、メンタルヘルスケアを統合したアプローチで理想の生活を実現。</p>
+                                        <div class="gpt5sw-sl10-meta">
+                                            <span class="gpt5sw-sl10-tag">健康</span>
+                                            <span class="gpt5sw-sl10-tag">運動</span>
+                                            <span class="gpt5sw-sl10-tag">栄養</span>
+                                        </div>
+                                        <button class="gpt5sw-sl10-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Slide 4: Entertainment -->
+                                <div class="swiper-slide">
+                                    <div class="gpt5sw-sl10-content">
+                                        <div class="gpt5sw-sl10-category">Entertainment</div>
+                                        <h3 class="gpt5sw-sl10-title">デジタル・エンターテイメント</h3>
+                                        <p class="gpt5sw-sl10-description">最新のテクノロジーを駆使したエンターテイメント体験。VR、AR、AIを活用したインタラクティブなコンテンツで、新しい娯楽の形を提案します。</p>
+                                        <div class="gpt5sw-sl10-meta">
+                                            <span class="gpt5sw-sl10-tag">VR</span>
+                                            <span class="gpt5sw-sl10-tag">AR</span>
+                                            <span class="gpt5sw-sl10-tag">体験</span>
+                                        </div>
+                                        <button class="gpt5sw-sl10-btn">詳細を見る</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Main Navigation -->
+                <div class="gpt5sw-sl10-main-nav">
+                    <div class="swiper-button-prev gpt5sw-sl10-main-prev"></div>
+                    <div class="swiper-button-next gpt5sw-sl10-main-next"></div>
+                </div>
+                
+                <!-- Main Pagination -->
+                <div class="swiper-pagination gpt5sw-sl10-main-pagination"></div>
+                
+                <!-- Controls -->
+                <div class="gpt5sw-sl10-controls">
+                    <div class="gpt5sw-sl10-counters">
+                        <div class="gpt5sw-sl10-left-counter">
+                            画像: <span id="gpt5sw-sl10-left-current">1</span> / <span id="gpt5sw-sl10-left-total">4</span>
+                        </div>
+                        <div class="gpt5sw-sl10-right-counter">
+                            コンテンツ: <span id="gpt5sw-sl10-right-current">1</span> / <span id="gpt5sw-sl10-right-total">4</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gpt5sw-sl10-sync-controls">
+                        <button class="gpt5sw-sl10-autoplay" id="gpt5sw-sl10-autoplay">
+                            <span id="gpt5sw-sl10-auto-icon">⏸</span>
+                            <span id="gpt5sw-sl10-auto-text">自動再生停止</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -2280,6 +5486,41 @@ if (!defined('ABSPATH')) { exit; }
                     initSwiper05();
                     console.log('=== Swiper 05 initialization complete ===');
                 }, 500);
+
+                // Initialize Swiper 06 (Premium Product Slider)
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 06 initialization ===');
+                    initSwiper06PremiumProduct();
+                    console.log('=== Swiper 06 initialization complete ===');
+                }, 600);
+
+                // Initialize Swiper 07 (Minimal Card Slider)
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 07 initialization ===');
+                    initSwiper07MinimalCard();
+                    console.log('=== Swiper 07 initialization complete ===');
+                }, 700);
+
+                // Initialize Swiper 08 (Mobile Native Card Slider)
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 08 initialization ===');
+                    initSwiper08MobileNative();
+                    console.log('=== Swiper 08 initialization complete ===');
+                }, 800);
+
+                // Initialize Swiper 09 (Liquid Flow Slider)
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 09 initialization ===');
+                    initSwiper09LiquidFlow();
+                    console.log('=== Swiper 09 initialization complete ===');
+                }, 900);
+
+                // Initialize Swiper 10 (Split Dual Slider)
+                setTimeout(() => {
+                    console.log('=== Starting Swiper 10 initialization ===');
+                    initSwiper10SplitDual();
+                    console.log('=== Swiper 10 initialization complete ===');
+                }, 1000);
             }
 
             // Generate slider 01 content
@@ -3177,6 +6418,1177 @@ if (!defined('ABSPATH')) { exit; }
                 }
 
                 console.log('Swiper 05 (Interactive 3D Cube) initialized');
+            }
+
+            // =====================================
+            // Swiper 06: Premium Product Slider
+            // =====================================
+
+            let swiper06Main = null;
+            let swiper06Thumbs = null;
+            let swiper06IsPlaying = true;
+
+            // Premium Product Data
+            const premiumProductData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=80&fit=crop',
+                    category: 'Electronics',
+                    title: 'Premium Wireless Headphones',
+                    description: '高品質なワイヤレスヘッドフォン。ノイズキャンセリング機能搭載で、クリアな音質を実現。',
+                    specs: ['30時間連続再生', 'ANCテクノロジー', '急速充電対応'],
+                    price: '¥29,800',
+                    badge: 'New',
+                    badgeClass: ''
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100&h=80&fit=crop',
+                    category: 'Wearables',
+                    title: 'Advanced Smartwatch Pro',
+                    description: '多機能スマートウォッチ。健康管理から通知機能まで、日常をサポートする最新技術。',
+                    specs: ['GPS内蔵', '心拍数モニター', '防水機能'],
+                    price: '¥45,000',
+                    badge: 'Premium',
+                    badgeClass: 'premium'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=100&h=80&fit=crop',
+                    category: 'Computing',
+                    title: 'Ultra-Thin Laptop',
+                    description: '軽量でパワフルなウルトラブック。仕事からクリエイティブワークまで幅広く対応。',
+                    specs: ['16GB RAM', '512GB SSD', '10時間バッテリー'],
+                    price: '¥159,800',
+                    badge: 'Sale',
+                    badgeClass: 'sale'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=100&h=80&fit=crop',
+                    category: 'Photography',
+                    title: 'Professional DSLR Camera',
+                    description: 'プロ仕様のデジタル一眼レフカメラ。高解像度センサーで美しい写真を撮影。',
+                    specs: ['24.2MP センサー', '4K動画撮影', 'Wi-Fi内蔵'],
+                    price: '¥89,800',
+                    badge: 'Featured',
+                    badgeClass: ''
+                }
+            ];
+
+            function initSwiper06PremiumProduct() {
+                const container = document.querySelector('.gpt5sw-sl06-container');
+                if (!container) {
+                    console.error('Premium Product Slider container not found');
+                    return;
+                }
+
+                try {
+                    // Initialize thumbnails swiper first
+                    const thumbsElement = container.querySelector('.gpt5sw-sl06-thumbs-swiper');
+                    if (thumbsElement) {
+                        swiper06Thumbs = new Swiper(thumbsElement, {
+                            spaceBetween: 20,
+                            slidesPerView: 4,
+                            freeMode: true,
+                            watchSlidesProgress: true,
+                            centeredSlides: false,
+                            breakpoints: {
+                                320: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 10
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 15
+                                },
+                                1024: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 20
+                                }
+                            }
+                        });
+                        console.log('Thumbnails swiper initialized:', swiper06Thumbs);
+                    }
+
+                    // Initialize main swiper
+                    const mainElement = container.querySelector('.gpt5sw-sl06-main');
+                    if (mainElement) {
+                        swiper06Main = new Swiper(mainElement, {
+                            spaceBetween: 30,
+                    loop: true,
+                    speed: 600,
+                            effect: 'slide',
+                            
+                            // Autoplay
+                    autoplay: {
+                                delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    },
+
+                            // Navigation
+                    navigation: {
+                                nextEl: container.querySelector('.gpt5sw-sl06-next'),
+                                prevEl: container.querySelector('.gpt5sw-sl06-prev'),
+                            },
+
+                            // Pagination
+                            pagination: {
+                                el: container.querySelector('.gpt5sw-sl06-pagination'),
+                                clickable: true,
+                                dynamicBullets: true,
+                            },
+
+                            // Thumbs
+                            thumbs: {
+                                swiper: swiper06Thumbs,
+                            },
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前の商品',
+                                nextSlideMessage: '次の商品',
+                            },
+
+                            // Callbacks
+                    on: {
+                        slideChange: function() {
+                                    updatePremiumProductCounter();
+                        },
+                        init: function() {
+                                    updatePremiumProductCounter();
+                                    console.log('Premium Product Slider initialized successfully');
+                                }
+                            }
+                        });
+                        console.log('Main swiper initialized:', swiper06Main);
+                    }
+
+                    // Initialize controls
+                    initPremiumProductControls(container);
+                    
+                    console.log('Swiper 06 (Premium Product Slider) initialized');
+                
+                } catch (error) {
+                    console.error('Premium Product Slider initialization failed:', error);
+                }
+            }
+
+            function initPremiumProductControls(container) {
+                // Autoplay control
+                const autoplayBtn = container.querySelector('#gpt5sw-sl06-autoplay');
+                if (autoplayBtn) {
+                    autoplayBtn.addEventListener('click', function() {
+                        const autoIcon = document.getElementById('gpt5sw-sl06-auto-icon');
+                        const autoText = document.getElementById('gpt5sw-sl06-auto-text');
+                        
+                        if (swiper06IsPlaying && swiper06Main) {
+                            swiper06Main.autoplay.stop();
+                            swiper06IsPlaying = false;
+                            autoIcon.textContent = '▶';
+                            autoText.textContent = '自動再生開始';
+                        } else if (swiper06Main) {
+                            swiper06Main.autoplay.start();
+                            swiper06IsPlaying = true;
+                            autoIcon.textContent = '⏸';
+                            autoText.textContent = '自動再生停止';
+                        }
+                    });
+                }
+
+                // Product buttons click handlers
+                const productBtns = container.querySelectorAll('.gpt5sw-sl06-btn');
+                productBtns.forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log(`Product ${index + 1} details clicked`);
+                        // Add your product details handling here
+                    });
+                });
+            }
+
+            function updatePremiumProductCounter() {
+                if (!swiper06Main) return;
+                
+                const currentElement = document.getElementById('gpt5sw-sl06-current');
+                const totalElement = document.getElementById('gpt5sw-sl06-total');
+                
+                if (currentElement && totalElement) {
+                    const realIndex = swiper06Main.realIndex + 1;
+                    const total = premiumProductData.length;
+                    currentElement.textContent = realIndex;
+                    totalElement.textContent = total;
+                }
+            }
+
+            // =====================================
+            // Swiper 07: Minimal Card Slider
+            // =====================================
+
+            let swiper07Main = null;
+            let swiper07Thumbs = null;
+            let swiper07IsPlaying = true;
+
+            // Minimal Card Service Data
+            const minimalCardData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=100&h=80&fit=crop',
+                    category: 'Web Design',
+                    title: 'モダンWebデザイン',
+                    description: 'ユーザー体験を重視したモダンで美しいWebサイトデザインを提供。レスポンシブ対応で全デバイスに最適化されたデザインをお届けします。',
+                    thumbLabel: 'Web Design'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=80&fit=crop',
+                    category: 'Marketing',
+                    title: 'デジタルマーケティング',
+                    description: 'データドリブンなマーケティング戦略で、ROIを最大化。SEO、SNS、コンテンツマーケティングを統合したアプローチで成果を実現します。',
+                    thumbLabel: 'Marketing'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=100&h=80&fit=crop',
+                    category: 'Development',
+                    title: 'モバイルアプリ開発',
+                    description: 'iOS・Android対応のネイティブアプリ開発。ユーザビリティを重視した直感的なインターフェースで、ビジネス価値を最大化するアプリを制作します。',
+                    thumbLabel: 'Development'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=400&fit=crop',
+                    thumbImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=100&h=80&fit=crop',
+                    category: 'Consulting',
+                    title: 'ビジネス戦略コンサルティング',
+                    description: '企業の成長戦略立案から実行支援まで。豊富な経験と実績に基づいた戦略的アドバイスで、持続可能なビジネス成長をサポートします。',
+                    thumbLabel: 'Consulting'
+                }
+            ];
+
+            function initSwiper07MinimalCard() {
+                const container = document.querySelector('.gpt5sw-sl07-container');
+                if (!container) {
+                    console.error('Minimal Card Slider container not found');
+                    return;
+                }
+
+                try {
+                    // Initialize thumbnails swiper first
+                    const thumbsElement = container.querySelector('.gpt5sw-sl07-thumbs-swiper');
+                    if (thumbsElement) {
+                        swiper07Thumbs = new Swiper(thumbsElement, {
+                            spaceBetween: 16,
+                            slidesPerView: 4,
+                            freeMode: true,
+                            watchSlidesProgress: true,
+                            centeredSlides: false,
+                            breakpoints: {
+                                320: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 12
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 14
+                                },
+                                1024: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 16
+                                }
+                            }
+                        });
+                        console.log('Minimal Card Thumbnails swiper initialized:', swiper07Thumbs);
+                    }
+
+                    // Initialize main swiper
+                    const mainElement = container.querySelector('.gpt5sw-sl07-main');
+                    if (mainElement) {
+                        swiper07Main = new Swiper(mainElement, {
+                            spaceBetween: 30,
+                            loop: true,
+                            speed: 500,
+                            effect: 'slide',
+                            
+                            // Autoplay
+                            autoplay: {
+                                delay: 6000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            },
+
+                            // Navigation
+                            navigation: {
+                                nextEl: container.querySelector('.gpt5sw-sl07-nav-next'),
+                                prevEl: container.querySelector('.gpt5sw-sl07-nav-prev'),
+                            },
+
+                            // Pagination
+                            pagination: {
+                                el: container.querySelector('.gpt5sw-sl07-pagination'),
+                                clickable: true,
+                                dynamicBullets: false,
+                            },
+
+                            // Thumbs
+                            thumbs: {
+                                swiper: swiper07Thumbs,
+                            },
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前のサービス',
+                                nextSlideMessage: '次のサービス',
+                            },
+
+                            // Callbacks
+                            on: {
+                                slideChange: function() {
+                                    updateMinimalCardCounter();
+                                },
+                                init: function() {
+                                    updateMinimalCardCounter();
+                                    console.log('Minimal Card Slider initialized successfully');
+                                }
+                            }
+                        });
+                        console.log('Minimal Card Main swiper initialized:', swiper07Main);
+                    }
+
+                    // Initialize controls
+                    initMinimalCardControls(container);
+                    
+                    console.log('Swiper 07 (Minimal Card Slider) initialized');
+                    
+                } catch (error) {
+                    console.error('Minimal Card Slider initialization failed:', error);
+                }
+            }
+
+            function initMinimalCardControls(container) {
+                // Autoplay control
+                const autoplayBtn = container.querySelector('#gpt5sw-sl07-autoplay');
+                if (autoplayBtn) {
+                    autoplayBtn.addEventListener('click', function() {
+                        const autoIcon = document.getElementById('gpt5sw-sl07-auto-icon');
+                        const autoText = document.getElementById('gpt5sw-sl07-auto-text');
+                        
+                        if (swiper07IsPlaying && swiper07Main) {
+                            swiper07Main.autoplay.stop();
+                            swiper07IsPlaying = false;
+                            autoIcon.textContent = '▶';
+                            autoText.textContent = '自動再生開始';
+                        } else if (swiper07Main) {
+                            swiper07Main.autoplay.start();
+                            swiper07IsPlaying = true;
+                            autoIcon.textContent = '⏸';
+                            autoText.textContent = '自動再生停止';
+                        }
+                    });
+                }
+
+                // Service buttons click handlers
+                const serviceBtns = container.querySelectorAll('.gpt5sw-sl07-btn');
+                serviceBtns.forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log(`Service ${index + 1} details clicked`);
+                        // Add your service details handling here
+                    });
+                });
+            }
+
+            function updateMinimalCardCounter() {
+                if (!swiper07Main) return;
+                
+                const currentElement = document.getElementById('gpt5sw-sl07-current');
+                const totalElement = document.getElementById('gpt5sw-sl07-total');
+                
+                if (currentElement && totalElement) {
+                    const realIndex = swiper07Main.realIndex + 1;
+                    const total = minimalCardData.length;
+                    currentElement.textContent = realIndex;
+                    totalElement.textContent = total;
+                }
+            }
+
+            // =====================================
+            // Swiper 08: Mobile Native Card Slider
+            // =====================================
+
+            let swiper08Main = null;
+            let swiper08IsPlaying = true;
+
+            // Mobile Native Card Data
+            const mobileNativeCardData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=250&fit=crop',
+                    category: 'Travel',
+                    title: '世界を旅する体験',
+                    description: '忘れられない旅の思い出を作りませんか？美しい景色と文化に触れる特別な体験をご提供します。',
+                    price: '¥89,000〜',
+                    rating: '★★★★★',
+                    badge: 'Popular',
+                    badgeClass: ''
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=250&fit=crop',
+                    category: 'Technology',
+                    title: '次世代テクノロジー',
+                    description: '最新のAI技術とイノベーションで、ビジネスの可能性を広げる革新的なソリューションを提供します。',
+                    price: 'お問い合わせ',
+                    rating: '★★★★☆',
+                    badge: 'New',
+                    badgeClass: 'new'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=250&fit=crop',
+                    category: 'Wellness',
+                    title: '健康とウェルネス',
+                    description: '心と体の健康をサポートする包括的なウェルネスプログラム。専門家による個別指導で理想の自分へ。',
+                    price: '¥12,000/月',
+                    rating: '★★★★★',
+                    badge: 'Trending',
+                    badgeClass: 'trending'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=250&fit=crop',
+                    category: 'Education',
+                    title: '学習とスキルアップ',
+                    description: '現代に必要なスキルを効率的に学べるオンライン学習プラットフォーム。あなたの成長をサポートします。',
+                    price: '¥2,980/月',
+                    rating: '★★★★☆',
+                    badge: 'Featured',
+                    badgeClass: 'featured'
+                }
+            ];
+
+            function initSwiper08MobileNative() {
+                const container = document.querySelector('.gpt5sw-sl08-container');
+                if (!container) {
+                    console.error('Mobile Native Card Slider container not found');
+                    return;
+                }
+
+                try {
+                    // Initialize main swiper
+                    const mainElement = container.querySelector('.gpt5sw-sl08-main');
+                    if (mainElement) {
+                        swiper08Main = new Swiper(mainElement, {
+                            spaceBetween: 20,
+                            loop: true,
+                            speed: 500,
+                            effect: 'slide',
+                            centeredSlides: true,
+                            
+                            // Autoplay
+                            autoplay: {
+                                delay: 6000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            },
+
+                            // Pagination
+                            pagination: {
+                                el: container.querySelector('.gpt5sw-sl08-pagination'),
+                                clickable: true,
+                                dynamicBullets: false,
+                            },
+
+                            // Touch settings (Mobile Native)
+                            touchRatio: 1,
+                            touchAngle: 45,
+                            grabCursor: true,
+                            touchStartPreventDefault: false,
+                            touchMoveStopPropagation: true,
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                                forceToAxis: true,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前のカード',
+                                nextSlideMessage: '次のカード',
+                            },
+
+                            // Responsive breakpoints
+                            breakpoints: {
+                                320: {
+                                    spaceBetween: 15,
+                                },
+                                768: {
+                                    spaceBetween: 20,
+                                },
+                                1024: {
+                                    spaceBetween: 25,
+                                }
+                            },
+
+                            // Callbacks
+                            on: {
+                                slideChange: function() {
+                                    updateMobileNativeCounter();
+                                },
+                                init: function() {
+                                    updateMobileNativeCounter();
+                                    console.log('Mobile Native Card Slider initialized successfully');
+                                },
+                                touchStart: function() {
+                                    // Add mobile-specific touch feedback
+                                    this.el.style.transform = 'scale(0.98)';
+                                },
+                                touchEnd: function() {
+                                    // Remove touch feedback
+                                    this.el.style.transform = 'scale(1)';
+                                }
+                            }
+                        });
+                        console.log('Mobile Native Main swiper initialized:', swiper08Main);
+                    }
+
+                    // Initialize controls
+                    initMobileNativeControls(container);
+                    
+                    console.log('Swiper 08 (Mobile Native Card Slider) initialized');
+                    
+                } catch (error) {
+                    console.error('Mobile Native Card Slider initialization failed:', error);
+                }
+            }
+
+            function initMobileNativeControls(container) {
+                // Autoplay control
+                const autoplayBtn = container.querySelector('#gpt5sw-sl08-autoplay');
+                if (autoplayBtn) {
+                    autoplayBtn.addEventListener('click', function() {
+                        const autoIcon = document.getElementById('gpt5sw-sl08-auto-icon');
+                        const autoText = document.getElementById('gpt5sw-sl08-auto-text');
+                        
+                        if (swiper08IsPlaying && swiper08Main) {
+                            swiper08Main.autoplay.stop();
+                            swiper08IsPlaying = false;
+                            autoIcon.textContent = '▶';
+                            autoText.textContent = '自動再生開始';
+                        } else if (swiper08Main) {
+                            swiper08Main.autoplay.start();
+                            swiper08IsPlaying = true;
+                            autoIcon.textContent = '⏸';
+                            autoText.textContent = '自動再生停止';
+                        }
+                    });
+                }
+
+                // Card buttons click handlers
+                const cardBtns = container.querySelectorAll('.gpt5sw-sl08-btn');
+                cardBtns.forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Add mobile-like button press animation
+                        btn.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            btn.style.transform = 'scale(1)';
+                        }, 150);
+                        
+                        console.log(`Card ${index + 1} details clicked`);
+                        // Add your card details handling here
+                    });
+                });
+
+                // Add swipe gesture indicators (mobile-like)
+                let startX = 0;
+                let startY = 0;
+                
+                container.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                }, { passive: true });
+
+                container.addEventListener('touchmove', function(e) {
+                    if (!startX || !startY) return;
+                    
+                    const xUp = e.touches[0].clientX;
+                    const yUp = e.touches[0].clientY;
+                    
+                    const xDiff = startX - xUp;
+                    const yDiff = startY - yUp;
+                    
+                    // Add subtle visual feedback during swipe
+                    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                        if (xDiff > 0) {
+                            // Swiping left
+                            container.style.transform = 'translateX(-2px)';
+                        } else {
+                            // Swiping right
+                            container.style.transform = 'translateX(2px)';
+                        }
+                    }
+                }, { passive: true });
+
+                container.addEventListener('touchend', function() {
+                    // Reset visual feedback
+                    container.style.transform = 'translateX(0)';
+                    startX = 0;
+                    startY = 0;
+                }, { passive: true });
+            }
+
+            function updateMobileNativeCounter() {
+                if (!swiper08Main) return;
+                
+                const currentElement = document.getElementById('gpt5sw-sl08-current');
+                const totalElement = document.getElementById('gpt5sw-sl08-total');
+                
+                if (currentElement && totalElement) {
+                    const realIndex = swiper08Main.realIndex + 1;
+                    const total = mobileNativeCardData.length;
+                    currentElement.textContent = realIndex;
+                    totalElement.textContent = total;
+                }
+            }
+
+            // =====================================
+            // Swiper 09: Liquid Flow Slider
+            // =====================================
+
+            let swiper09Main = null;
+            let swiper09IsPlaying = true;
+
+            // Liquid Flow Environmental Data
+            const liquidFlowData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop',
+                    category: 'Ocean',
+                    title: '海洋保護プロジェクト',
+                    description: '美しい海を守るための革新的な取り組み。持続可能な未来のために、私たちと一緒に海洋環境を保護しませんか？',
+                    impact: '影響度: 高',
+                    participants: '参加者: 12,500人'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=300&fit=crop',
+                    category: 'Forest',
+                    title: '森林再生イニシアティブ',
+                    description: '失われた森を取り戻す大規模な植林プロジェクト。緑豊かな地球を次世代に残すための取り組みにご参加ください。',
+                    impact: '影響度: 最高',
+                    participants: '参加者: 8,900人'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=300&fit=crop',
+                    category: 'Energy',
+                    title: 'クリーンエネルギー革命',
+                    description: '再生可能エネルギーによる持続可能な社会の実現。太陽光、風力、水力を活用した次世代エネルギーシステム。',
+                    impact: '影響度: 高',
+                    participants: '参加者: 15,200人'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&h=300&fit=crop',
+                    category: 'Water',
+                    title: '水資源保全プログラム',
+                    description: '貴重な水資源を守り、きれいな水を世界中に届ける取り組み。技術革新と地域連携で水不足問題の解決を目指します。',
+                    impact: '影響度: 最高',
+                    participants: '参加者: 20,100人'
+                }
+            ];
+
+            function initSwiper09LiquidFlow() {
+                const container = document.querySelector('.gpt5sw-sl09-container');
+                if (!container) {
+                    console.error('Liquid Flow Slider container not found');
+                    return;
+                }
+
+                try {
+                    // Initialize main swiper
+                    const mainElement = container.querySelector('.gpt5sw-sl09-main');
+                    if (mainElement) {
+                        swiper09Main = new Swiper(mainElement, {
+                            spaceBetween: 30,
+                            loop: true,
+                            speed: 600,
+                            effect: 'slide',
+                            
+                            // Autoplay (slower for liquid effects)
+                            autoplay: {
+                                delay: 7000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            },
+
+                            // Navigation
+                            navigation: {
+                                nextEl: container.querySelector('.gpt5sw-sl09-nav-next'),
+                                prevEl: container.querySelector('.gpt5sw-sl09-nav-prev'),
+                            },
+
+                            // Pagination
+                            pagination: {
+                                el: container.querySelector('.gpt5sw-sl09-pagination'),
+                                clickable: true,
+                                dynamicBullets: false,
+                            },
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                                forceToAxis: true,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前の環境プロジェクト',
+                                nextSlideMessage: '次の環境プロジェクト',
+                            },
+
+                            // Responsive breakpoints
+                            breakpoints: {
+                                320: {
+                                    spaceBetween: 20,
+                                },
+                                768: {
+                                    spaceBetween: 25,
+                                },
+                                1024: {
+                                    spaceBetween: 30,
+                                }
+                            },
+
+                            // Callbacks
+                            on: {
+                                slideChange: function() {
+                                    updateLiquidFlowCounter();
+                                    triggerLiquidEffects();
+                                },
+                                init: function() {
+                                    updateLiquidFlowCounter();
+                                    initLiquidEffects();
+                                    console.log('Liquid Flow Slider initialized successfully');
+                                }
+                            }
+                        });
+                        console.log('Liquid Flow Main swiper initialized:', swiper09Main);
+                    }
+
+                    // Initialize controls
+                    initLiquidFlowControls(container);
+                    
+                    console.log('Swiper 09 (Liquid Flow Slider) initialized');
+                    
+                } catch (error) {
+                    console.error('Liquid Flow Slider initialization failed:', error);
+                }
+            }
+
+            function initLiquidFlowControls(container) {
+                // Autoplay control
+                const autoplayBtn = container.querySelector('#gpt5sw-sl09-autoplay');
+                if (autoplayBtn) {
+                    autoplayBtn.addEventListener('click', function() {
+                        const autoIcon = document.getElementById('gpt5sw-sl09-auto-icon');
+                        const autoText = document.getElementById('gpt5sw-sl09-auto-text');
+                        
+                        if (swiper09IsPlaying && swiper09Main) {
+                            swiper09Main.autoplay.stop();
+                            swiper09IsPlaying = false;
+                            autoIcon.textContent = '▶';
+                            autoText.textContent = '自動再生開始';
+                        } else if (swiper09Main) {
+                            swiper09Main.autoplay.start();
+                            swiper09IsPlaying = true;
+                            autoIcon.textContent = '⏸';
+                            autoText.textContent = '自動再生停止';
+                        }
+                    });
+                }
+
+                // Project buttons click handlers
+                const projectBtns = container.querySelectorAll('.gpt5sw-sl09-btn');
+                projectBtns.forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Trigger liquid ripple effect
+                        const ripple = btn.querySelector('.gpt5sw-sl09-btn-ripple');
+                        if (ripple) {
+                            ripple.style.width = '300px';
+                            ripple.style.height = '300px';
+                            setTimeout(() => {
+                                ripple.style.width = '0';
+                                ripple.style.height = '0';
+                            }, 600);
+                        }
+                        
+                        console.log(`Environmental Project ${index + 1} participation clicked`);
+                        // Add your project participation handling here
+                    });
+                });
+
+                // Navigation buttons ripple effects
+                const navBtns = container.querySelectorAll('.gpt5sw-sl09-nav-prev, .gpt5sw-sl09-nav-next');
+                navBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const ripple = btn.querySelector('.gpt5sw-sl09-nav-ripple');
+                        if (ripple) {
+                            ripple.style.width = '120px';
+                            ripple.style.height = '120px';
+                            setTimeout(() => {
+                                ripple.style.width = '0';
+                                ripple.style.height = '0';
+                            }, 600);
+                        }
+                        
+                        // Trigger additional liquid effects on navigation
+                        triggerLiquidEffects();
+                    });
+                });
+            }
+
+            function initLiquidEffects() {
+                // Initialize background liquid animations
+                const ripples = document.querySelectorAll('.gpt5sw-sl09-ripple');
+                const droplets = document.querySelectorAll('.gpt5sw-sl09-droplet');
+                
+                // Ensure animations are running
+                ripples.forEach(ripple => {
+                    ripple.style.animationPlayState = 'running';
+                });
+                
+                droplets.forEach(droplet => {
+                    droplet.style.animationPlayState = 'running';
+                });
+                
+                console.log('Liquid effects initialized');
+            }
+
+            function triggerLiquidEffects() {
+                // Create additional ripple effect on slide change
+                const liquidBg = document.querySelector('.gpt5sw-sl09-liquid-bg');
+                if (liquidBg) {
+                    const newRipple = document.createElement('div');
+                    newRipple.className = 'gpt5sw-sl09-ripple';
+                    newRipple.style.top = Math.random() * 70 + 15 + '%';
+                    newRipple.style.left = Math.random() * 70 + 15 + '%';
+                    newRipple.style.width = Math.random() * 100 + 100 + 'px';
+                    newRipple.style.height = newRipple.style.width;
+                    newRipple.style.animationDuration = Math.random() * 2 + 3 + 's';
+                    
+                    liquidBg.appendChild(newRipple);
+                    
+                    // Remove the ripple after animation
+                    setTimeout(() => {
+                        if (liquidBg.contains(newRipple)) {
+                            liquidBg.removeChild(newRipple);
+                        }
+                    }, 5000);
+                }
+                
+                // Enhance wave effects
+                const waveOverlays = document.querySelectorAll('.gpt5sw-sl09-wave-overlay');
+                waveOverlays.forEach(wave => {
+                    wave.style.animationDuration = Math.random() * 1 + 2.5 + 's';
+                });
+            }
+
+            function updateLiquidFlowCounter() {
+                if (!swiper09Main) return;
+                
+                const currentElement = document.getElementById('gpt5sw-sl09-current');
+                const totalElement = document.getElementById('gpt5sw-sl09-total');
+                
+                if (currentElement && totalElement) {
+                    const realIndex = swiper09Main.realIndex + 1;
+                    const total = liquidFlowData.length;
+                    currentElement.textContent = realIndex;
+                    totalElement.textContent = total;
+                }
+            }
+
+            // =====================================
+            // Swiper 10: Split Dual Slider
+            // =====================================
+
+            let swiper10Left = null;
+            let swiper10Right = null;
+            let swiper10IsPlaying = true;
+
+            // Split Dual Slider Data
+            const splitDualImageData = [
+                {
+                    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+                    alt: 'Mountain Landscape'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop',
+                    alt: 'City Skyline'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+                    alt: 'Technology'
+                },
+                {
+                    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+                    alt: 'Lifestyle'
+                }
+            ];
+
+            const splitDualContentData = [
+                {
+                    category: 'Business',
+                    title: 'ビジネス戦略の革新',
+                    description: '現代のビジネス環境において、革新的な戦略とデジタル変革が成功の鍵となります。データ分析と顧客インサイトを活用し、競合他社との差別化を図ります。',
+                    tags: ['戦略', '革新', '成長']
+                },
+                {
+                    category: 'Education',
+                    title: '次世代の学習体験',
+                    description: 'テクノロジーを活用した個別最適化学習により、一人ひとりの可能性を最大限に引き出します。AIとVRを組み合わせた没入型の教育プラットフォームを提供。',
+                    tags: ['学習', 'AI', '個別化']
+                },
+                {
+                    category: 'Health',
+                    title: 'ウェルネス・ライフスタイル',
+                    description: '心と体の健康を総合的にサポートする包括的なウェルネスプログラム。栄養管理、運動指導、メンタルヘルスケアを統合したアプローチで理想の生活を実現。',
+                    tags: ['健康', '運動', '栄養']
+                },
+                {
+                    category: 'Entertainment',
+                    title: 'デジタル・エンターテイメント',
+                    description: '最新のテクノロジーを駆使したエンターテイメント体験。VR、AR、AIを活用したインタラクティブなコンテンツで、新しい娯楽の形を提案します。',
+                    tags: ['VR', 'AR', '体験']
+                }
+            ];
+
+            function initSwiper10SplitDual() {
+                const container = document.querySelector('.gpt5sw-sl10-container');
+                if (!container) {
+                    console.error('Split Dual Slider container not found');
+                    return;
+                }
+
+                try {
+                    // Initialize left swiper (images)
+                    const leftElement = container.querySelector('.gpt5sw-sl10-image-swiper');
+                    if (leftElement) {
+                        swiper10Left = new Swiper(leftElement, {
+                            spaceBetween: 0,
+                            loop: true,
+                            speed: 500,
+                            effect: 'slide',
+                            
+                            // Autoplay (6 seconds)
+                            autoplay: {
+                                delay: 6000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            },
+
+                            // Navigation (main navigation)
+                            navigation: {
+                                nextEl: container.querySelector('.gpt5sw-sl10-main-next'),
+                                prevEl: container.querySelector('.gpt5sw-sl10-main-prev'),
+                            },
+
+                            // Pagination (main pagination)
+                            pagination: {
+                                el: container.querySelector('.gpt5sw-sl10-main-pagination'),
+                                clickable: true,
+                                dynamicBullets: false,
+                            },
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                                forceToAxis: true,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前の画像',
+                                nextSlideMessage: '次の画像',
+                            },
+
+                            // Callbacks
+                            on: {
+                                slideChange: function() {
+                                    updateSplitDualCounters();
+                                    // Always sync right slider
+                                    if (swiper10Right) {
+                                        swiper10Right.slideToLoop(this.realIndex);
+                                    }
+                                },
+                                init: function() {
+                                    updateSplitDualCounters();
+                                    console.log('Split Dual Left Swiper initialized successfully');
+                                }
+                            }
+                        });
+                        console.log('Split Dual Left swiper initialized:', swiper10Left);
+                    }
+
+                    // Initialize right swiper (content)
+                    const rightElement = container.querySelector('.gpt5sw-sl10-content-swiper');
+                    if (rightElement) {
+                        swiper10Right = new Swiper(rightElement, {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                            loop: true,
+                            speed: 500,
+                            effect: 'slide',
+                            
+                            // No autoplay for right slider (controlled by left)
+                            autoplay: false,
+
+                            // Keyboard control
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true,
+                            },
+
+                            // Mouse wheel
+                            mousewheel: {
+                                enabled: true,
+                                sensitivity: 1,
+                                forceToAxis: true,
+                            },
+
+                            // Accessibility
+                            a11y: {
+                                enabled: true,
+                                prevSlideMessage: '前のコンテンツ',
+                                nextSlideMessage: '次のコンテンツ',
+                            },
+
+                            // Callbacks
+                            on: {
+                                init: function() {
+                                    console.log('Split Dual Right Swiper initialized successfully');
+                                }
+                            }
+                        });
+                        console.log('Split Dual Right swiper initialized:', swiper10Right);
+                    }
+
+                    // Initialize controls
+                    initSplitDualControls(container);
+                    
+                    console.log('Swiper 10 (Split Dual Slider) initialized');
+                    
+                } catch (error) {
+                    console.error('Split Dual Slider initialization failed:', error);
+                }
+            }
+
+            function initSplitDualControls(container) {
+                // Autoplay control
+                const autoplayBtn = container.querySelector('#gpt5sw-sl10-autoplay');
+                if (autoplayBtn) {
+                    autoplayBtn.addEventListener('click', function() {
+                        const autoIcon = document.getElementById('gpt5sw-sl10-auto-icon');
+                        const autoText = document.getElementById('gpt5sw-sl10-auto-text');
+                        
+                        if (swiper10IsPlaying) {
+                            // Stop autoplay
+                            if (swiper10Left) {
+                                swiper10Left.autoplay.stop();
+                                swiper10IsPlaying = false;
+                            }
+                            autoIcon.textContent = '▶';
+                            autoText.textContent = '自動再生開始';
+                        } else {
+                            // Start autoplay
+                            if (swiper10Left) {
+                                swiper10Left.autoplay.start();
+                                swiper10IsPlaying = true;
+                            }
+                            autoIcon.textContent = '⏸';
+                            autoText.textContent = '自動再生停止';
+                        }
+                    });
+                }
+
+                // Content buttons click handlers
+                const contentBtns = container.querySelectorAll('.gpt5sw-sl10-btn');
+                contentBtns.forEach((btn, index) => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log(`Split Dual Content ${index + 1} details clicked`);
+                        // Add your content details handling here
+                    });
+                });
+            }
+
+            function updateSplitDualCounters() {
+                if (!swiper10Left) return;
+                
+                const leftCurrentElement = document.getElementById('gpt5sw-sl10-left-current');
+                const leftTotalElement = document.getElementById('gpt5sw-sl10-left-total');
+                const rightCurrentElement = document.getElementById('gpt5sw-sl10-right-current');
+                const rightTotalElement = document.getElementById('gpt5sw-sl10-right-total');
+                
+                if (leftCurrentElement && leftTotalElement) {
+                    const realIndex = swiper10Left.realIndex + 1;
+                    const total = splitDualImageData.length;
+                    leftCurrentElement.textContent = realIndex;
+                    leftTotalElement.textContent = total;
+                    
+                    // Update right counter with same index (synchronized)
+                    if (rightCurrentElement && rightTotalElement) {
+                        rightCurrentElement.textContent = realIndex;
+                        rightTotalElement.textContent = splitDualContentData.length;
+                    }
+                }
             }
 
             // Update counter for slider 05
